@@ -565,6 +565,40 @@
     <button class="pill">30 dias</button>
   </div>
 
+  <!-- ── ANALYSIS SECTION ── -->
+  <div id="analysis-section" style="display:none; padding:16px 24px 18px; border-bottom:1px solid var(--border); background:var(--bg-deep);">
+    <div class="sec-ttl" style="margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Análise do dia
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;">
+      <div class="scard">
+        <div class="scard-lbl" style="display:flex;align-items:center;gap:5px;">
+          <span style="font-size:11px;">🔥</span> Tendências do dia
+        </div>
+        <div id="an-tendencias" style="margin-top:8px;font-size:12px;color:var(--text-2);line-height:1.65;">—</div>
+      </div>
+      <div class="scard">
+        <div class="scard-lbl" style="display:flex;align-items:center;gap:5px;">
+          <span style="font-size:11px;">⚡</span> Mecanismos em alta
+        </div>
+        <div id="an-mecanismos" style="margin-top:8px;font-size:12px;color:var(--text-2);line-height:1.65;">—</div>
+      </div>
+      <div class="scard">
+        <div class="scard-lbl" style="display:flex;align-items:center;gap:5px;">
+          <span style="font-size:11px;">👤</span> Avatares em alta
+        </div>
+        <div id="an-avatares" style="margin-top:8px;font-size:12px;color:var(--text-2);line-height:1.65;">—</div>
+      </div>
+      <div class="scard" style="border-color:var(--gold);">
+        <div class="scard-lbl" style="display:flex;align-items:center;gap:5px;color:var(--gold);">
+          <span style="font-size:11px;">📋</span> Recomendações para copy
+        </div>
+        <div id="an-recomendacoes" style="margin-top:8px;font-size:12px;color:var(--text-2);line-height:1.65;">—</div>
+      </div>
+    </div>
+  </div>
+
   <!-- BODY -->
   <div class="body">
 
@@ -931,37 +965,26 @@
     });
   });
 
-  // PILLS
-  document.querySelectorAll('.pill').forEach(p => {
-    p.addEventListener('click', function() {
-      document.querySelectorAll('.pill').forEach(x => x.classList.remove('on'));
-      this.classList.add('on');
-    });
-  });
-
-  // DATE PICKER
+  // DATE PICKER — toggle only (apply + reload handled by data loader)
   const toggle = document.getElementById('dateToggle');
   const drop   = document.getElementById('dateDrop');
-  const label  = document.getElementById('dateLabel');
 
   toggle.addEventListener('click', e => { e.stopPropagation(); drop.classList.toggle('open'); });
   document.addEventListener('click', () => drop.classList.remove('open'));
   drop.addEventListener('click', e => e.stopPropagation());
-
-  document.getElementById('dateApply').addEventListener('click', () => {
-    const f = document.getElementById('dateFrom').value;
-    const t = document.getElementById('dateTo').value;
-    if (f && t) {
-      const fmt = d => { const [y,m,dd] = d.split('-'); return dd+'/'+m+'/'+y; };
-      label.textContent = fmt(f) + ' → ' + fmt(t);
-    }
-    drop.classList.remove('open');
-  });
 </script>
 
 <!-- ── DATA LOADER ── -->
 <script>
-(function() {
+(function () {
+
+  // ── State ──
+  var PERIOD_DAYS = 3;
+  var CUSTOM_FROM = null;
+  var CUSTOM_TO   = null;
+  var USE_CUSTOM  = false;
+  var HISTORY     = [];
+  var CACHE       = {};
 
   // ── Helpers ──
   function fmtNum(n) {
@@ -969,31 +992,40 @@
     if (n >= 1000)    return Math.round(n / 1000) + 'K';
     return String(n);
   }
-
   function aguardando() {
-    return '<div style="padding:40px 24px;text-align:center;color:var(--text-3);font-size:13px;letter-spacing:.04em;">Aguardando dados...</div>';
+    return '<div style="padding:40px 24px;text-align:center;color:var(--text-3);font-size:13px;">Aguardando dados...</div>';
+  }
+  function todayStr() {
+    return new Date().toISOString().slice(0, 10);
+  }
+  function shiftDate(iso, days) {
+    var d = new Date(iso); d.setDate(d.getDate() + days);
+    return d.toISOString().slice(0, 10);
   }
 
-  // ── YouTube card builder ──
+  // ── YouTube card ──
   function buildYtCard(v) {
-    var url  = v.url || '#';
-    var href = (url === '#')
-      ? 'href="#" onclick="return false"'
-      : 'href="' + url + '" target="_blank" rel="noopener"';
+    var url   = v.url || '#';
+    var href  = (url === '#') ? 'href="#" onclick="return false"' : 'href="' + url + '" target="_blank" rel="noopener"';
     var thumb = v.thumbnail
       ? '<img src="' + v.thumbnail + '" style="width:100%;height:100%;object-fit:cover"/>'
       : '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#9ca3af" stroke-width="1.5"/><polygon points="10,7 16,10 10,13" fill="#9ca3af"/></svg><span class="vthumb-lbl">Thumbnail</span>';
-    var canalChip = v.canal
-      ? '<span class="chip" style="color:var(--text-3);font-style:italic">' + v.canal + '</span>'
-      : '';
-    var commChip = v.comentarios
-      ? '<span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' + v.comentarios + ' comentários</span>'
-      : '';
-    var dateChip = v.data
-      ? '<span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' + v.data + '</span>'
-      : '';
-    var diasLabel = v.dias_desde_publicacao ? v.dias_desde_publicacao + ' dias desde publicação' : '';
-    var kwTag = v.keyword ? '<span class="antag">' + v.keyword + '</span>' : '';
+    var canalChip = v.canal ? '<span class="chip" style="color:var(--text-3);font-style:italic">' + v.canal + '</span>' : '';
+    var commChip  = v.comentarios ? '<span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' + v.comentarios + ' coment&aacute;rios</span>' : '';
+    var dateChip  = v.data ? '<span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' + v.data + '</span>' : '';
+    var viewsCol  = v.views >= 500000 ? 'var(--gold)' : v.views >= 100000 ? 'var(--green)' : 'var(--text-2)';
+    // Right-panel analysis: use v.analise if present, else show keyword + days
+    var anText, anTags;
+    if (v.analise) {
+      anText = v.analise;
+      anTags = v.keyword ? '<span class="antag">' + v.keyword + '</span>' : '';
+    } else {
+      anText = v.dias_desde_publicacao ? v.dias_desde_publicacao + ' dias ap&oacute;s publica&ccedil;&atilde;o' : '';
+      anTags = [
+        v.keyword ? '<span class="antag">' + v.keyword + '</span>' : '',
+        v.likes    ? '<span class="antag">' + fmtNum(v.likes) + ' likes</span>' : '',
+      ].join('');
+    }
     return [
       '<div class="vcard">',
         '<div class="vthumb">', thumb, '</div>',
@@ -1005,125 +1037,189 @@
           '<div class="vtitle">', v.titulo || '', '</div>',
           '<div class="vmeta">',
             canalChip,
-            '<span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>', fmtNum(v.views || 0), ' views</span>',
-            commChip,
-            dateChip,
+            '<span class="chip" style="color:', viewsCol, '"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>', fmtNum(v.views || 0), ' views</span>',
+            commChip, dateChip,
             '<span class="chip"><div class="geo-dot"></div>UK</span>',
           '</div>',
           '<a class="vlink" ', href, '>',
             '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>',
-            'Assistir vídeo',
+            'Assistir v&iacute;deo',
           '</a>',
         '</div>',
         '<div class="vanalysis">',
-          '<div class="anlbl"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Análise</div>',
-          '<div class="antext">', diasLabel, '</div>',
-          kwTag,
+          '<div class="anlbl"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> An&aacute;lise</div>',
+          '<div class="antext">', anText, '</div>',
+          anTags,
         '</div>',
       '</div>'
     ].join('');
   }
 
-  // ── Trend row builder ──
+  // ── Trend row ──
   function buildTrendRow(t) {
-    var bar   = Math.min(Math.max(t.score || 0, 0), 100);
-    var grow  = t.crescimento || 0;
-    var cls   = grow > 0 ? 'up' : grow < 0 ? 'dn' : 'neu';
-    var col   = grow > 0 ? 'var(--green)' : grow < 0 ? 'var(--red)' : 'var(--gold)';
-    var sign  = grow > 0 ? '+' : '';
-    return [
-      '<div class="tbl-row">',
-        '<div class="kw">', t.keyword || '', '</div>',
-        '<div class="region"><div class="geo-dot"></div>', t.pais || '', '</div>',
-        '<div class="chng ', cls, '">', sign, grow, '%</div>',
-        '<div class="period-col">7 dias</div>',
-        '<div><div class="bar-wrap"><div class="bar" style="width:', bar, '%;background:', col, '"></div></div></div>',
-      '</div>'
-    ].join('');
+    var bar  = Math.min(Math.max(t.score || 0, 0), 100);
+    var grow = t.crescimento || 0;
+    var cls  = grow > 0 ? 'up' : grow < 0 ? 'dn' : 'neu';
+    var col  = grow > 0 ? 'var(--green)' : grow < 0 ? 'var(--red)' : 'var(--gold)';
+    return ['<div class="tbl-row">',
+      '<div class="kw">', t.keyword || '', '</div>',
+      '<div class="region"><div class="geo-dot"></div>', t.pais || '', '</div>',
+      '<div class="chng ', cls, '">', grow > 0 ? '+' : '', grow, '%</div>',
+      '<div class="period-col">7 dias</div>',
+      '<div><div class="bar-wrap"><div class="bar" style="width:', bar, '%;background:', col, '"></div></div></div>',
+    '</div>'].join('');
   }
 
-  // ── Apply data to DOM ──
-  function applyData(data) {
+  // ── Fetch with cache ──
+  function fetchJson(url) {
+    if (CACHE[url]) return Promise.resolve(CACHE[url]);
+    return fetch(url)
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { CACHE[url] = d; return d; });
+  }
 
-    // Header — update execution date
-    if (data.data_execucao) {
-      document.getElementById('dateLabel').textContent = data.data_execucao;
+  // ── Determine which history dates fall in selected period ──
+  function getDatesInPeriod() {
+    if (USE_CUSTOM && CUSTOM_FROM && CUSTOM_TO) {
+      return HISTORY.filter(function (d) { return d >= CUSTOM_FROM && d <= CUSTOM_TO; });
+    }
+    var cutoff = shiftDate(todayStr(), -PERIOD_DAYS);
+    return HISTORY.filter(function (d) { return d >= cutoff; });
+  }
+
+  // ── Load data files for period and render ──
+  function loadAndRender() {
+    var dates = getDatesInPeriod();
+    var urls  = dates.length > 0
+      ? dates.map(function (d) { return '../data/' + d + '.json'; })
+      : ['../data/latest.json'];
+
+    Promise.all(urls.map(function (u) { return fetchJson(u).catch(function () { return null; }); }))
+      .then(function (results) {
+        var valid = results.filter(Boolean);
+        if (valid.length === 0) {
+          // Final fallback: latest.json
+          return fetchJson('../data/latest.json').then(function (d) { return [d]; }).catch(function () { return []; });
+        }
+        return valid;
+      })
+      .then(function (datasets) {
+        if (!datasets.length) { renderAll([], [], {}, ''); return; }
+
+        // Merge youtube (dedup by url, sort by views desc)
+        var seenUrls = {}, allYt = [];
+        datasets.forEach(function (d) {
+          (d.youtube || []).forEach(function (v) {
+            if (!seenUrls[v.url]) { seenUrls[v.url] = 1; allYt.push(v); }
+          });
+        });
+        allYt.sort(function (a, b) { return b.views - a.views; });
+
+        // Merge trends (dedup by keyword+pais)
+        var seenKw = {}, allTr = [];
+        datasets.forEach(function (d) {
+          (d.trends || []).forEach(function (t) {
+            var k = t.keyword + '|' + t.pais;
+            if (!seenKw[k]) { seenKw[k] = 1; allTr.push(t); }
+          });
+        });
+
+        var latest = datasets[0];
+        renderAll(allYt, allTr, latest.analise || {}, latest.data_execucao || '');
+      })
+      .catch(function () { renderAll([], [], {}, ''); });
+  }
+
+  // ── Render everything ──
+  function renderAll(youtube, trends, analise, dataExec) {
+    // Header date — only update when not in custom range mode
+    if (!USE_CUSTOM && dataExec) {
+      document.getElementById('dateLabel').textContent = dataExec;
     }
 
-    // ── YouTube tab ──
+    // Analysis section (show only when analise has content)
+    var hasAn  = analise.tendencias || analise.mecanismos_em_alta || analise.avatares_em_alta || analise.recomendacoes;
+    var anSect = document.getElementById('analysis-section');
+    if (anSect) {
+      anSect.style.display = hasAn ? 'block' : 'none';
+      if (hasAn) {
+        document.getElementById('an-tendencias').textContent    = analise.tendencias         || '—';
+        document.getElementById('an-mecanismos').textContent    = analise.mecanismos_em_alta  || '—';
+        document.getElementById('an-avatares').textContent      = analise.avatares_em_alta    || '—';
+        document.getElementById('an-recomendacoes').textContent = analise.recomendacoes       || '—';
+      }
+    }
+
+    // YouTube
     var scYt = document.getElementById('sc-yt');
-    if (data.youtube && data.youtube.length > 0) {
-      scYt.innerHTML = data.youtube.map(buildYtCard).join('');
-    } else {
-      scYt.innerHTML = aguardando();
-    }
+    scYt.innerHTML = youtube.length ? youtube.map(buildYtCard).join('') : aguardando();
 
-    // ── Google Trends tab ──
-    var scGt  = document.getElementById('sc-gt');
+    // Trends
+    var scGt    = document.getElementById('sc-gt');
     var tblWrap = scGt.querySelector('.tbl-wrap');
     var tblHead = tblWrap ? tblWrap.querySelector('.tbl-head') : null;
-
-    if (data.trends && data.trends.length > 0) {
-
-      // Summary cards
-      var growing = data.trends.filter(function(t) { return t.crescimento > 0; });
-      var topT    = data.trends.reduce(function(a, b) { return b.crescimento > a.crescimento ? b : a; }, data.trends[0]);
-      var paises  = data.trends.map(function(t) { return t.pais; })
-                               .filter(function(v, i, a) { return a.indexOf(v) === i; })
-                               .join(', ');
-      var smetaEl = scGt.querySelector('.smeta');
-      if (smetaEl) {
-        smetaEl.innerHTML = [
-          '<div class="scard">',
-            '<div class="scard-lbl">Termos em crescimento</div>',
-            '<div class="scard-val">', growing.length, '</div>',
-            '<div class="scard-sub up">↑ ', growing.length, ' com crescimento positivo</div>',
-          '</div>',
-          '<div class="scard">',
-            '<div class="scard-lbl">Top crescimento</div>',
-            '<div class="scard-val">+', topT.crescimento, '%</div>',
-            '<div class="scard-sub up">', topT.keyword, ' · ', topT.pais, '</div>',
-          '</div>',
-          '<div class="scard">',
-            '<div class="scard-lbl">Região monitorizada</div>',
-            '<div class="scard-val">', paises, '</div>',
-            '<div class="scard-sub neu">Última execução: ', data.data_execucao || '—', '</div>',
-          '</div>'
+    if (trends.length) {
+      var growing = trends.filter(function (t) { return t.crescimento > 0; });
+      var topT    = trends.reduce(function (a, b) { return b.crescimento > a.crescimento ? b : a; }, trends[0]);
+      var paises  = trends.map(function (t) { return t.pais; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(', ');
+      var smeta   = scGt.querySelector('.smeta');
+      if (smeta) {
+        smeta.innerHTML = [
+          '<div class="scard"><div class="scard-lbl">Termos em crescimento</div><div class="scard-val">', growing.length, '</div><div class="scard-sub up">&uarr; ', growing.length, ' com crescimento positivo</div></div>',
+          '<div class="scard"><div class="scard-lbl">Top crescimento</div><div class="scard-val">+', topT.crescimento, '%</div><div class="scard-sub up">', topT.keyword, ' &middot; ', topT.pais, '</div></div>',
+          '<div class="scard"><div class="scard-lbl">Regi&atilde;o monitorizada</div><div class="scard-val">', paises, '</div><div class="scard-sub neu">&Uacute;ltima execu&ccedil;&atilde;o: ', dataExec || '&mdash;', '</div></div>',
         ].join('');
       }
-
-      // Table rows
-      if (tblWrap) {
-        tblWrap.innerHTML = (tblHead ? tblHead.outerHTML : '') +
-          data.trends.map(buildTrendRow).join('');
-      }
-
+      if (tblWrap) tblWrap.innerHTML = (tblHead ? tblHead.outerHTML : '') + trends.map(buildTrendRow).join('');
     } else {
-      if (tblWrap) {
-        tblWrap.innerHTML = (tblHead ? tblHead.outerHTML : '') + aguardando();
-      }
+      if (tblWrap) tblWrap.innerHTML = (tblHead ? tblHead.outerHTML : '') + aguardando();
     }
   }
 
-  // ── Fetch ──
-  fetch('../data/latest.json')
-    .then(function(r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
+  // ── Period pill buttons ──
+  // Clone to remove old listeners, then re-attach
+  document.querySelectorAll('.pill').forEach(function (p) {
+    var n = p.cloneNode(true);
+    p.parentNode.replaceChild(n, p);
+  });
+  document.querySelectorAll('.pill').forEach(function (p) {
+    p.addEventListener('click', function () {
+      document.querySelectorAll('.pill').forEach(function (x) { x.classList.remove('on'); });
+      this.classList.add('on');
+      USE_CUSTOM = false;
+      var txt = this.textContent.trim();
+      if (txt.indexOf('30') !== -1)     PERIOD_DAYS = 30;
+      else if (txt.indexOf('7') !== -1) PERIOD_DAYS = 7;
+      else                               PERIOD_DAYS = 3;
+      loadAndRender();
+    });
+  });
+
+  // ── Calendar date range ──
+  document.getElementById('dateApply').addEventListener('click', function () {
+    var f = document.getElementById('dateFrom').value;
+    var t = document.getElementById('dateTo').value;
+    if (f && t) {
+      CUSTOM_FROM = f;
+      CUSTOM_TO   = t;
+      USE_CUSTOM  = true;
+      var fmt = function (d) { var p = d.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; };
+      document.getElementById('dateLabel').textContent = fmt(f) + ' → ' + fmt(t);
+      document.querySelectorAll('.pill').forEach(function (x) { x.classList.remove('on'); });
+    }
+    document.getElementById('dateDrop').classList.remove('open');
+    loadAndRender();
+  });
+
+  // ── Bootstrap: load history then render ──
+  fetchJson('../data/history.json')
+    .then(function (h) {
+      HISTORY = (h.dates || []).slice().sort().reverse(); // newest first
+      loadAndRender();
     })
-    .then(applyData)
-    .catch(function() {
-      // Show fallback in YouTube and Trends
-      var scYt = document.getElementById('sc-yt');
-      if (scYt) scYt.innerHTML = aguardando();
-      var scGt = document.getElementById('sc-gt');
-      if (scGt) {
-        var tw = scGt.querySelector('.tbl-wrap');
-        if (tw) {
-          var th = tw.querySelector('.tbl-head');
-          tw.innerHTML = (th ? th.outerHTML : '') + aguardando();
-        }
-      }
+    .catch(function () {
+      HISTORY = [];
+      loadAndRender();
     });
 
 })();
