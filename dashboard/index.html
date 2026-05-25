@@ -958,5 +958,175 @@
     drop.classList.remove('open');
   });
 </script>
+
+<!-- ── DATA LOADER ── -->
+<script>
+(function() {
+
+  // ── Helpers ──
+  function fmtNum(n) {
+    if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.0', '') + 'M';
+    if (n >= 1000)    return Math.round(n / 1000) + 'K';
+    return String(n);
+  }
+
+  function aguardando() {
+    return '<div style="padding:40px 24px;text-align:center;color:var(--text-3);font-size:13px;letter-spacing:.04em;">Aguardando dados...</div>';
+  }
+
+  // ── YouTube card builder ──
+  function buildYtCard(v) {
+    var url  = v.url || '#';
+    var href = (url === '#')
+      ? 'href="#" onclick="return false"'
+      : 'href="' + url + '" target="_blank" rel="noopener"';
+    var thumb = v.thumbnail
+      ? '<img src="' + v.thumbnail + '" style="width:100%;height:100%;object-fit:cover"/>'
+      : '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#9ca3af" stroke-width="1.5"/><polygon points="10,7 16,10 10,13" fill="#9ca3af"/></svg><span class="vthumb-lbl">Thumbnail</span>';
+    var canalChip = v.canal
+      ? '<span class="chip" style="color:var(--text-3);font-style:italic">' + v.canal + '</span>'
+      : '';
+    var commChip = v.comentarios
+      ? '<span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' + v.comentarios + ' comentários</span>'
+      : '';
+    var dateChip = v.data
+      ? '<span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' + v.data + '</span>'
+      : '';
+    var diasLabel = v.dias_desde_publicacao ? v.dias_desde_publicacao + ' dias desde publicação' : '';
+    var kwTag = v.keyword ? '<span class="antag">' + v.keyword + '</span>' : '';
+    return [
+      '<div class="vcard">',
+        '<div class="vthumb">', thumb, '</div>',
+        '<div class="vcontent">',
+          '<div class="vplatform" style="color:#ef4444">',
+            '<svg width="12" height="9" viewBox="0 0 20 14"><path d="M19.6 2.2A2.5 2.5 0 0 0 17.8.5C16.3 0 10 0 10 0S3.7 0 2.2.5A2.5 2.5 0 0 0 .4 2.2 26 26 0 0 0 0 7a26 26 0 0 0 .4 4.8A2.5 2.5 0 0 0 2.2 13.5C3.7 14 10 14 10 14s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.7A26 26 0 0 0 20 7a26 26 0 0 0-.4-4.8z" fill="#FF0000"/><polygon points="8,10 13,7 8,4" fill="white"/></svg>',
+            'YouTube',
+          '</div>',
+          '<div class="vtitle">', v.titulo || '', '</div>',
+          '<div class="vmeta">',
+            canalChip,
+            '<span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>', fmtNum(v.views || 0), ' views</span>',
+            commChip,
+            dateChip,
+            '<span class="chip"><div class="geo-dot"></div>UK</span>',
+          '</div>',
+          '<a class="vlink" ', href, '>',
+            '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>',
+            'Assistir vídeo',
+          '</a>',
+        '</div>',
+        '<div class="vanalysis">',
+          '<div class="anlbl"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Análise</div>',
+          '<div class="antext">', diasLabel, '</div>',
+          kwTag,
+        '</div>',
+      '</div>'
+    ].join('');
+  }
+
+  // ── Trend row builder ──
+  function buildTrendRow(t) {
+    var bar   = Math.min(Math.max(t.score || 0, 0), 100);
+    var grow  = t.crescimento || 0;
+    var cls   = grow > 0 ? 'up' : grow < 0 ? 'dn' : 'neu';
+    var col   = grow > 0 ? 'var(--green)' : grow < 0 ? 'var(--red)' : 'var(--gold)';
+    var sign  = grow > 0 ? '+' : '';
+    return [
+      '<div class="tbl-row">',
+        '<div class="kw">', t.keyword || '', '</div>',
+        '<div class="region"><div class="geo-dot"></div>', t.pais || '', '</div>',
+        '<div class="chng ', cls, '">', sign, grow, '%</div>',
+        '<div class="period-col">7 dias</div>',
+        '<div><div class="bar-wrap"><div class="bar" style="width:', bar, '%;background:', col, '"></div></div></div>',
+      '</div>'
+    ].join('');
+  }
+
+  // ── Apply data to DOM ──
+  function applyData(data) {
+
+    // Header — update execution date
+    if (data.data_execucao) {
+      document.getElementById('dateLabel').textContent = data.data_execucao;
+    }
+
+    // ── YouTube tab ──
+    var scYt = document.getElementById('sc-yt');
+    if (data.youtube && data.youtube.length > 0) {
+      scYt.innerHTML = data.youtube.map(buildYtCard).join('');
+    } else {
+      scYt.innerHTML = aguardando();
+    }
+
+    // ── Google Trends tab ──
+    var scGt  = document.getElementById('sc-gt');
+    var tblWrap = scGt.querySelector('.tbl-wrap');
+    var tblHead = tblWrap ? tblWrap.querySelector('.tbl-head') : null;
+
+    if (data.trends && data.trends.length > 0) {
+
+      // Summary cards
+      var growing = data.trends.filter(function(t) { return t.crescimento > 0; });
+      var topT    = data.trends.reduce(function(a, b) { return b.crescimento > a.crescimento ? b : a; }, data.trends[0]);
+      var paises  = data.trends.map(function(t) { return t.pais; })
+                               .filter(function(v, i, a) { return a.indexOf(v) === i; })
+                               .join(', ');
+      var smetaEl = scGt.querySelector('.smeta');
+      if (smetaEl) {
+        smetaEl.innerHTML = [
+          '<div class="scard">',
+            '<div class="scard-lbl">Termos em crescimento</div>',
+            '<div class="scard-val">', growing.length, '</div>',
+            '<div class="scard-sub up">↑ ', growing.length, ' com crescimento positivo</div>',
+          '</div>',
+          '<div class="scard">',
+            '<div class="scard-lbl">Top crescimento</div>',
+            '<div class="scard-val">+', topT.crescimento, '%</div>',
+            '<div class="scard-sub up">', topT.keyword, ' · ', topT.pais, '</div>',
+          '</div>',
+          '<div class="scard">',
+            '<div class="scard-lbl">Região monitorizada</div>',
+            '<div class="scard-val">', paises, '</div>',
+            '<div class="scard-sub neu">Última execução: ', data.data_execucao || '—', '</div>',
+          '</div>'
+        ].join('');
+      }
+
+      // Table rows
+      if (tblWrap) {
+        tblWrap.innerHTML = (tblHead ? tblHead.outerHTML : '') +
+          data.trends.map(buildTrendRow).join('');
+      }
+
+    } else {
+      if (tblWrap) {
+        tblWrap.innerHTML = (tblHead ? tblHead.outerHTML : '') + aguardando();
+      }
+    }
+  }
+
+  // ── Fetch ──
+  fetch('../data/latest.json')
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(applyData)
+    .catch(function() {
+      // Show fallback in YouTube and Trends
+      var scYt = document.getElementById('sc-yt');
+      if (scYt) scYt.innerHTML = aguardando();
+      var scGt = document.getElementById('sc-gt');
+      if (scGt) {
+        var tw = scGt.querySelector('.tbl-wrap');
+        if (tw) {
+          var th = tw.querySelector('.tbl-head');
+          tw.innerHTML = (th ? th.outerHTML : '') + aguardando();
+        }
+      }
+    });
+
+})();
+</script>
 </body>
 </html>
