@@ -1,5 +1,5 @@
 {
-  "data_execucao": "25/05/2026 11:02",
+  "data_execucao": "25/05/2026 11:12",
   "youtube": [
     {
       "titulo": "My weight loss journey ♥️ #weightloss #minivlog #shortvideo #youtube #ytshorts #food #weightlosstips",
@@ -642,22 +642,13 @@
   ],
   "trends": [
     {
-      "keyword": "ozempic",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 31,
-      "score_maximo": 100,
-      "score_minimo": 25,
-      "crescimento_pct": 3.3
-    },
-    {
       "keyword": "belly fat",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 48,
+      "score_atual": 51,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 33.3
+      "crescimento_pct": 64.5
     }
   ],
   "analise": {
