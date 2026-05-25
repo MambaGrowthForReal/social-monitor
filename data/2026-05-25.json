@@ -1,5 +1,5 @@
 {
-  "data_execucao": "25/05/2026 03:32",
+  "data_execucao": "25/05/2026 09:53",
   "youtube": [
     {
       "titulo": "My weight loss journey ♥️ #weightloss #minivlog #shortvideo #youtube #ytshorts #food #weightlosstips",
@@ -197,9 +197,122 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
-  "facebook": [],
-  "trends": [],
+  "tiktok": [
+    {
+      "titulo": "Homemade Nature’s ozempic Benefits:  -improves digestion and gut health  -good for clear skin  -vitamin c  -soothes anxiety   #lemonbalm #lemonbalmrecipe #health #guthealth ",
+      "autor": "im just a girl",
+      "plays": 634900,
+      "likes": 23300,
+      "shares": 3030,
+      "comentarios": 154,
+      "data": "2025-08-15",
+      "dias_desde_publicacao": 283,
+      "url": "https://www.tiktok.com/@coolgirlfinds47/video/7538930970863340816",
+      "keyword": "natural ozempic",
+      "analise": ""
+    },
+    {
+      "titulo": "#juice #foryou #fyp #viral #nutmilkmaker #zopehan #lichico #qplanet #zopehanxxd #lichicoxxd ",
+      "autor": "newlilweovo",
+      "plays": 41800,
+      "likes": 912,
+      "shares": 201,
+      "comentarios": 29,
+      "data": "2024-12-07",
+      "dias_desde_publicacao": 534,
+      "url": "https://www.tiktok.com/@newlilweovo/video/7445516308558417182",
+      "keyword": "natural ozempic",
+      "analise": ""
+    },
+    {
+      "titulo": "Dont take Ozemp!c girls theres a natural alternative out there! 🔗 in my profile 🩹 #ozempic #ozempicjourney ",
+      "autor": "Jessybty",
+      "plays": 171900,
+      "likes": 665,
+      "shares": 70,
+      "comentarios": 11,
+      "data": "2024-12-04",
+      "dias_desde_publicacao": 537,
+      "url": "https://www.tiktok.com/@jessybty/video/7444433270588050710",
+      "keyword": "natural ozempic",
+      "analise": ""
+    },
+    {
+      "titulo": "I am SHOOK !  #womenshealth #womenover40  #womenin30s #beauty #wellness #GlowUp #health #holistic #yerba #yerbamate #tiktokshopflashsale #TikTokShop #tiktokshopdeals ",
+      "autor": "Anna: Registered Nurse",
+      "plays": 4000000,
+      "likes": 100100,
+      "shares": 4050,
+      "comentarios": 530,
+      "data": "2025-01-20",
+      "dias_desde_publicacao": 490,
+      "url": "https://www.tiktok.com/@holisticglowupp/video/7462095817332002079",
+      "keyword": "natural ozempic",
+      "analise": ""
+    },
+    {
+      "titulo": "We often avoid bitter foods, but they may be the missing piece for balance. In this episode, @Radhi Devlukia shares how bitter foods—like leafy greens, arugula, kale, and certain herbs—stimulate GLP-1",
+      "autor": "A Really Good Cry",
+      "plays": 59900,
+      "likes": 2288,
+      "shares": 145,
+      "comentarios": 18,
+      "data": "2025-09-30",
+      "dias_desde_publicacao": 237,
+      "url": "https://www.tiktok.com/@areallygoodcry/video/7555921751637495071",
+      "keyword": "natural ozempic",
+      "analise": ""
+    }
+  ],
+  "facebook": [
+    {
+      "page": "Grace Holland",
+      "texto": "i keep seeing people say berberine is basically natural ozempic. is this legit? anyone tried it?",
+      "data_inicio": "May 08, 2026",
+      "dias_ativo": 17,
+      "tipo_media": "IMAGE",
+      "url": "https://www.facebook.com/ads/library/?id=977335238413153",
+      "pais": "GB",
+      "keyword": "natural ozempic",
+      "avatar": "",
+      "analise": ""
+    },
+    {
+      "page": "Ionix Labs",
+      "texto": "Have you ever heard of 3D micro-massage compression? IONIX introduces revolutionary leggings that are transforming post-weight-loss recovery. They're more than just activewear - they're your skin's second chance.",
+      "data_inicio": "May 14, 2026",
+      "dias_ativo": 11,
+      "tipo_media": "IMAGE",
+      "url": "https://www.facebook.com/ads/library/?id=983207044222989",
+      "pais": "GB",
+      "keyword": "natural ozempic",
+      "avatar": "",
+      "analise": ""
+    },
+    {
+      "page": "Becca Fisher",
+      "texto": "I started dreading getting dressed in the morning because no matter what I wore, my neck gave everything away.",
+      "data_inicio": "May 01, 2026",
+      "dias_ativo": 24,
+      "tipo_media": "IMAGE",
+      "url": "https://www.facebook.com/ads/library/?id=1291469236454039",
+      "pais": "GB",
+      "keyword": "natural ozempic",
+      "avatar": "",
+      "analise": ""
+    }
+  ],
+  "trends": [
+    {
+      "keyword": "mounjaro",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 38,
+      "score_maximo": 100,
+      "score_minimo": 35,
+      "crescimento_pct": -13.6
+    }
+  ],
   "analise": {
     "tendencias": "",
     "mecanismos_em_alta": "",
