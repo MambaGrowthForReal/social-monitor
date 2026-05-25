@@ -1,0 +1,9 @@
+.env
+*.env
+*_secret*
+*_token*
+credentials.json
+config_local.py
+__pycache__/
+*.pyc
+data/*.json
