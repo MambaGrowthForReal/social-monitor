@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mamba Growth — Social Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-base: #0d1117;
+    --bg-card: #161c24;
+    --bg-deep: #12181f;
+    --bg-row:  #111827;
+    --border:  #1e2530;
+    --border2: #2e3a4e;
+    --text-1:  #e5e7eb;
+    --text-2:  #9ca3af;
+    --text-3:  #6b7280;
+    --blue:    #4a90d9;
+    --gold:    #d4a843;
+    --green:   #22c55e;
+    --red:     #ef4444;
+    --fb:      #60a5fa;
+  }
+
+  body {
+    background: #080c12;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-1);
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  /* ── SHELL ── */
+  .shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--bg-base);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  /* ── HEADER ── */
+  .hdr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-base);
+  }
+  .hdr-l { display: flex; align-items: center; gap: 14px; }
+  .logo   { display: flex; align-items: center; gap: 10px; }
+  .logo img { width: 38px; height: 38px; border-radius: 7px; object-fit: cover; }
+  .logo-txt { font-family: 'Rajdhani', sans-serif; font-weight: 700; line-height: 1.05; letter-spacing: .04em; }
+  .logo-txt .a { font-size: 17px; color: var(--blue); display: block; }
+  .logo-txt .b { font-size: 12px; color: var(--gold); display: block; letter-spacing: .13em; }
+  .hdiv { width: 1px; height: 22px; background: var(--border); }
+  .hdr-title { font-size: 13px; color: var(--text-3); }
+
+  /* date button */
+  .date-wrap { position: relative; }
+  .date-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 7px 13px;
+    color: var(--text-2);
+    font-size: 11px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    transition: border-color .2s, color .2s;
+  }
+  .date-btn:hover { border-color: var(--blue); color: var(--text-1); }
+  .date-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .date-drop {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 7px);
+    background: var(--bg-card);
+    border: 1px solid var(--border2);
+    border-radius: 9px;
+    padding: 14px;
+    z-index: 200;
+    width: 250px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  }
+  .date-drop.open { display: block; }
+  .dd-row { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+  .dd-lbl { font-size: 10px; color: var(--text-3); text-transform: uppercase; letter-spacing: .07em; }
+  .dd-input {
+    background: var(--bg-base);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 9px;
+    color: var(--text-1);
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+  }
+  .dd-input:focus { outline: none; border-color: var(--blue); }
+  .dd-apply {
+    width: 100%;
+    background: #1a2540;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 7px;
+    color: var(--blue);
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .dd-apply:hover { background: var(--blue); color: #fff; }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-base);
+    padding: 0 24px;
+  }
+  .tab {
+    padding: 11px 16px;
+    font-size: 12px;
+    color: var(--text-3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border-bottom: 2px solid transparent;
+    transition: all .18s;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .tab:hover { color: var(--text-2); }
+  .tab.on { color: var(--text-1); border-bottom-color: var(--blue); }
+
+  /* ── FILTER BAR ── */
+  .fbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    background: var(--bg-row);
+    border-bottom: 1px solid var(--border);
+  }
+  .flab { font-size: 11px; color: var(--text-3); margin-right: 2px; }
+  .pill {
+    padding: 5px 15px;
+    border-radius: 7px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid var(--border2);
+    color: var(--text-2);
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    transition: all .18s;
+    font-weight: 500;
+  }
+  .pill:hover { border-color: var(--blue); color: var(--text-1); }
+  .pill.on { background: #1a2540; border-color: var(--blue); color: var(--text-1); }
+
+  /* ── BODY ── */
+  .body { padding: 18px 24px 28px; }
+  .screen { display: none; }
+  .screen.on { display: block; }
+
+  /* ── CARDS ── */
+  .vcard {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    overflow: hidden;
+    margin-bottom: 13px;
+    display: grid;
+    grid-template-columns: 130px 1fr 230px;
+    transition: border-color .2s;
+  }
+  .vcard:hover { border-color: var(--border2); }
+
+  .vthumb {
+    background: #1a2030;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+    min-height: 130px;
+    gap: 8px;
+    padding: 12px;
+  }
+  .vthumb svg { opacity: .2; }
+  .vthumb-lbl { font-size: 10px; color: #3d4757; text-transform: uppercase; letter-spacing: .05em; }
+
+  .vcontent { padding: 14px 16px; }
+
+  .vplatform {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 7px;
+  }
+
+  .vtitle {
+    font-size: 13px;
+    color: var(--text-1);
+    margin-bottom: 10px;
+    line-height: 1.45;
+    font-weight: 500;
+  }
+
+  .vmeta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 7px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--text-2);
+  }
+  .chip svg { flex-shrink: 0; }
+  .geo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
+
+  .vbadge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: .04em;
+  }
+  .vbadge.vid { background: #1e3a5f; color: #60a5fa; border: 1px solid #1d4ed8; }
+  .vbadge.img { background: #1a2e1a; color: #4ade80; border: 1px solid #166534; }
+
+  .avatar-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-2);
+    margin-bottom: 7px;
+  }
+
+  .vlink {
+    font-size: 11px;
+    color: var(--blue);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    margin-top: 3px;
+  }
+  .vlink:hover { text-decoration: underline; }
+
+  /* analysis panel */
+  .vanalysis {
+    background: var(--bg-deep);
+    border-left: 1px solid var(--border);
+    padding: 14px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .anlbl {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 9px;
+  }
+  .antext { font-size: 11px; color: var(--text-2); line-height: 1.72; }
+  .antag {
+    display: inline-block;
+    background: #1a2030;
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 10px;
+    color: var(--text-3);
+    margin-top: 8px;
+    margin-right: 4px;
+  }
+
+  /* ── TRENDS TABLE ── */
+  .smeta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .scard {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 13px 15px;
+  }
+  .scard-lbl { font-size: 11px; color: var(--text-3); margin-bottom: 5px; }
+  .scard-val { font-size: 22px; font-weight: 500; color: var(--text-1); }
+  .scard-sub { font-size: 11px; margin-top: 4px; }
+  .up  { color: var(--green); }
+  .dn  { color: var(--red); }
+  .neu { color: var(--text-3); }
+
+  .tbl-wrap {
+    background: #0b1016;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    overflow: hidden;
+  }
+  .tbl-head {
+    display: grid;
+    grid-template-columns: 1fr 80px 90px 90px 180px;
+    padding: 9px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-row);
+  }
+  .tbl-head span {
+    font-size: 10px;
+    color: var(--text-3);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+  }
+  .tbl-row {
+    display: grid;
+    grid-template-columns: 1fr 80px 90px 90px 180px;
+    align-items: center;
+    padding: 11px 16px;
+    border-bottom: 1px solid #0f1520;
+    transition: background .15s;
+  }
+  .tbl-row:hover { background: var(--bg-card); }
+  .tbl-row:last-child { border-bottom: none; }
+  .kw { font-size: 12px; color: var(--text-1); font-weight: 500; }
+  .region { font-size: 11px; color: var(--text-2); display: flex; align-items: center; gap: 5px; }
+  .chng { font-size: 13px; font-weight: 500; }
+  .period-col { font-size: 11px; color: var(--text-2); }
+  .bar-wrap { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .bar { height: 5px; border-radius: 3px; }
+
+  /* ── SECTION TITLE ── */
+  .sec-ttl {
+    font-size: 11px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  /* SVG icon helpers */
+  .ico { display: inline-flex; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-l">
+      <div class="logo">
+        <img src="data:image/jpeg;base64,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" alt="Mamba Growth"/>
+        <div class="logo-txt">
+          <span class="a">MAMBA</span>
+          <span class="b">GROWTH</span>
+        </div>
+      </div>
+      <div class="hdiv"></div>
+      <span class="hdr-title">Social Monitor</span>
+    </div>
+
+    <div class="date-wrap">
+      <button class="date-btn" id="dateToggle">
+        <div class="date-dot"></div>
+        <span id="dateLabel">22/05/2026</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="date-drop" id="dateDrop">
+        <div class="dd-row">
+          <div class="dd-lbl">De</div>
+          <input class="dd-input" type="date" id="dateFrom" value="2026-05-15"/>
+        </div>
+        <div class="dd-row">
+          <div class="dd-lbl">Até</div>
+          <input class="dd-input" type="date" id="dateTo" value="2026-05-22"/>
+        </div>
+        <button class="dd-apply" id="dateApply">Aplicar período</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab on" data-tab="yt">
+      <svg width="13" height="10" viewBox="0 0 20 14" fill="none">
+        <path d="M19.6 2.2A2.5 2.5 0 0 0 17.8.5C16.3 0 10 0 10 0S3.7 0 2.2.5A2.5 2.5 0 0 0 .4 2.2 26 26 0 0 0 0 7a26 26 0 0 0 .4 4.8A2.5 2.5 0 0 0 2.2 13.5C3.7 14 10 14 10 14s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.7A26 26 0 0 0 20 7a26 26 0 0 0-.4-4.8z" fill="#FF0000"/>
+        <polygon points="8,10 13,7 8,4" fill="white"/>
+      </svg>
+      YouTube
+    </div>
+    <div class="tab" data-tab="tt">
+      <svg width="11" height="13" viewBox="0 0 17 20" fill="none">
+        <path d="M16.5 4.6a5 5 0 0 1-3.9-4.4V0h-3.6v14a3 3 0 0 1-3 2.6 3 3 0 0 1-3-3 3 3 0 0 1 3-3c.3 0 .6 0 .8.1V7.1a6.6 6.6 0 0 0-.8-.05 6.6 6.6 0 0 0-6.6 6.6A6.6 6.6 0 0 0 6 20.2a6.6 6.6 0 0 0 6.6-6.6V6.7a8.5 8.5 0 0 0 5 1.6V4.7a5 5 0 0 1-1.1-.1z" fill="#e5e7eb"/>
+      </svg>
+      TikTok
+    </div>
+    <div class="tab" data-tab="fb">
+      <svg width="13" height="13" viewBox="0 0 24 24">
+        <rect width="24" height="24" rx="4" fill="#1877F2"/>
+        <path d="M16 8h-2a1 1 0 0 0-1 1v2h3l-.5 3H13v7H10v-7H8v-3h2V9a4 4 0 0 1 4-4h2v3z" fill="white"/>
+      </svg>
+      Facebook Ads
+    </div>
+    <div class="tab" data-tab="gt">
+      <svg width="13" height="13" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="#4285F4"/>
+        <path d="M8 15 L11 11.5 L14 13.5 L17 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="8" cy="15" r="1.2" fill="white"/>
+        <circle cx="17" cy="9" r="1.2" fill="white"/>
+      </svg>
+      Google Trends
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="fbar">
+    <span class="flab">Período:</span>
+    <button class="pill on">Últimos 3 dias</button>
+    <button class="pill">7 dias</button>
+    <button class="pill">30 dias</button>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- ══ YOUTUBE ══ -->
+    <div class="screen on" id="sc-yt">
+
+      <div class="vcard">
+        <div class="vthumb">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#9ca3af" stroke-width="1.5"/><polygon points="10,7 16,10 10,13" fill="#9ca3af"/></svg>
+          <span class="vthumb-lbl">Thumbnail</span>
+        </div>
+        <div class="vcontent">
+          <div class="vplatform" style="color:#ef4444">
+            <svg width="12" height="9" viewBox="0 0 20 14"><path d="M19.6 2.2A2.5 2.5 0 0 0 17.8.5C16.3 0 10 0 10 0S3.7 0 2.2.5A2.5 2.5 0 0 0 .4 2.2 26 26 0 0 0 0 7a26 26 0 0 0 .4 4.8A2.5 2.5 0 0 0 2.2 13.5C3.7 14 10 14 10 14s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.7A26 26 0 0 0 20 7a26 26 0 0 0-.4-4.8z" fill="#FF0000"/><polygon points="8,10 13,7 8,4" fill="white"/></svg>
+            YouTube
+          </div>
+          <div class="vtitle">Doctor reacts: weight loss transformation — Celebrity reveals GLP-1 journey</div>
+          <div class="vmeta">
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              521K views
+            </span>
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              310 comentários
+            </span>
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              11/05/2026
+            </span>
+            <span class="chip"><div class="geo-dot"></div>UK</span>
+          </div>
+          <a class="vlink" href="#" onclick="return false">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            Assistir vídeo
+          </a>
+        </div>
+        <div class="vanalysis">
+          <div class="anlbl">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Análise
+          </div>
+          <div class="antext">Médico reage à transformação viral. Ângulo de autoridade médica valida o mecanismo. Alto potencial para copy com credibilidade científica.</div>
+          <span class="antag">autoridade médica</span>
+          <span class="antag">GLP-1</span>
+          <span class="antag">UK</span>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#9ca3af" stroke-width="1.5"/><polygon points="10,7 16,10 10,13" fill="#9ca3af"/></svg>
+          <span class="vthumb-lbl">Thumbnail</span>
+        </div>
+        <div class="vcontent">
+          <div class="vplatform" style="color:#ef4444">
+            <svg width="12" height="9" viewBox="0 0 20 14"><path d="M19.6 2.2A2.5 2.5 0 0 0 17.8.5C16.3 0 10 0 10 0S3.7 0 2.2.5A2.5 2.5 0 0 0 .4 2.2 26 26 0 0 0 0 7a26 26 0 0 0 .4 4.8A2.5 2.5 0 0 0 2.2 13.5C3.7 14 10 14 10 14s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.7A26 26 0 0 0 20 7a26 26 0 0 0-.4-4.8z" fill="#FF0000"/><polygon points="8,10 13,7 8,4" fill="white"/></svg>
+            YouTube
+          </div>
+          <div class="vtitle">18 Celebrities Ozempic Face Transformations of 2026 That Backfired</div>
+          <div class="vmeta">
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              191K views
+            </span>
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              480 comentários
+            </span>
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              16/05/2026
+            </span>
+            <span class="chip"><div class="geo-dot"></div>UK</span>
+          </div>
+          <a class="vlink" href="#" onclick="return false">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            Assistir vídeo
+          </a>
+        </div>
+        <div class="vanalysis">
+          <div class="anlbl">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Análise
+          </div>
+          <div class="antext">Ângulo contrário ao Ozempic — efeitos negativos viralizando. Oportunidade para copy de alternativa natural sem efeitos colaterais.</div>
+          <span class="antag">anti-ozempic</span>
+          <span class="antag">alternativa natural</span>
+          <span class="antag">UK</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ TIKTOK ══ -->
+    <div class="screen" id="sc-tt">
+
+      <div class="vcard">
+        <div class="vthumb">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#9ca3af" stroke-width="1.5"/><polygon points="10,7 16,10 10,13" fill="#9ca3af"/></svg>
+          <span class="vthumb-lbl">Thumbnail</span>
+        </div>
+        <div class="vcontent">
+          <div class="vplatform" style="color:#e5e7eb">
+            <svg width="10" height="12" viewBox="0 0 17 20"><path d="M16.5 4.6a5 5 0 0 1-3.9-4.4V0h-3.6v14a3 3 0 0 1-3 2.6 3 3 0 0 1-3-3 3 3 0 0 1 3-3c.3 0 .6 0 .8.1V7.1a6.6 6.6 0 0 0-.8-.05 6.6 6.6 0 0 0-6.6 6.6A6.6 6.6 0 0 0 6 20.2a6.6 6.6 0 0 0 6.6-6.6V6.7a8.5 8.5 0 0 0 5 1.6V4.7a5 5 0 0 1-1.1-.1z" fill="#e5e7eb"/></svg>
+            TikTok
+          </div>
+          <div class="vtitle">ice hack weight loss — 2.9M views — @otakoyakisoba</div>
+          <div class="vmeta">
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              2.9M views
+            </span>
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              180K likes
+            </span>
+            <span class="chip"><div class="geo-dot"></div>UK/US</span>
+          </div>
+          <a class="vlink" href="#" onclick="return false">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            Ver vídeo
+          </a>
+        </div>
+        <div class="vanalysis">
+          <div class="anlbl">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Análise
+          </div>
+          <div class="antext">Ice hack dominando o TikTok. Mecanismo visual e simples de replicar em copy. Avatar jovem — público 18-35.</div>
+          <span class="antag">mecanismo</span>
+          <span class="antag">viral</span>
+          <span class="antag">18-35</span>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#9ca3af" stroke-width="1.5"/><polygon points="10,7 16,10 10,13" fill="#9ca3af"/></svg>
+          <span class="vthumb-lbl">Thumbnail</span>
+        </div>
+        <div class="vcontent">
+          <div class="vplatform" style="color:#e5e7eb">
+            <svg width="10" height="12" viewBox="0 0 17 20"><path d="M16.5 4.6a5 5 0 0 1-3.9-4.4V0h-3.6v14a3 3 0 0 1-3 2.6 3 3 0 0 1-3-3 3 3 0 0 1 3-3c.3 0 .6 0 .8.1V7.1a6.6 6.6 0 0 0-.8-.05 6.6 6.6 0 0 0-6.6 6.6A6.6 6.6 0 0 0 6 20.2a6.6 6.6 0 0 0 6.6-6.6V6.7a8.5 8.5 0 0 0 5 1.6V4.7a5 5 0 0 1-1.1-.1z" fill="#e5e7eb"/></svg>
+            TikTok
+          </div>
+          <div class="vtitle">celebrity weight loss transformation — @justjj_x</div>
+          <div class="vmeta">
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              416K views
+            </span>
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              42K likes
+            </span>
+            <span class="chip"><div class="geo-dot"></div>UK</span>
+          </div>
+          <a class="vlink" href="#" onclick="return false">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            Ver vídeo
+          </a>
+        </div>
+        <div class="vanalysis">
+          <div class="anlbl">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Análise
+          </div>
+          <div class="antext">Transformação de celebridade viralizando no UK. Prova social forte. Ângulo aspiracional — público feminino 25-45.</div>
+          <span class="antag">aspiracional</span>
+          <span class="antag">prova social</span>
+          <span class="antag">UK</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ FACEBOOK ADS ══ -->
+    <div class="screen" id="sc-fb">
+
+      <div class="vcard">
+        <div class="vthumb">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#9ca3af" stroke-width="1.5"/><polygon points="10,7 16,10 10,13" fill="#9ca3af"/></svg>
+          <span class="vthumb-lbl">Criativo</span>
+        </div>
+        <div class="vcontent">
+          <div class="vplatform" style="color:var(--fb)">
+            <svg width="13" height="13" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1877F2"/><path d="M16 8h-2a1 1 0 0 0-1 1v2h3l-.5 3H13v7H10v-7H8v-3h2V9a4 4 0 0 1 4-4h2v3z" fill="white"/></svg>
+            Facebook Ads · Flo Pilates
+          </div>
+          <div class="vtitle">"Say bye-bye to belly fat with just 15 minutes per day"</div>
+          <div class="vmeta">
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              407 dias ativo
+            </span>
+            <span class="chip"><div class="geo-dot"></div>US/UK</span>
+            <span class="vbadge vid">VIDEO</span>
+          </div>
+          <div class="avatar-row">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Mulher antes/depois + app fitness
+          </div>
+          <a class="vlink" href="#" onclick="return false">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            Ver anúncio
+          </a>
+        </div>
+        <div class="vanalysis">
+          <div class="anlbl">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Análise
+          </div>
+          <div class="antext">407 dias ativo = copy validado. Avatar antes/depois + promessa de 15min/dia. Padrão repetido em 7 criativos diferentes — altamente escalável.</div>
+          <span class="antag">UGC</span>
+          <span class="antag">antes/depois</span>
+          <span class="antag">407 dias</span>
+        </div>
+      </div>
+
+      <div class="vcard">
+        <div class="vthumb">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="14" rx="2" stroke="#9ca3af" stroke-width="1.5"/><polygon points="10,7 16,10 10,13" fill="#9ca3af"/></svg>
+          <span class="vthumb-lbl">Criativo</span>
+        </div>
+        <div class="vcontent">
+          <div class="vplatform" style="color:var(--fb)">
+            <svg width="13" height="13" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#1877F2"/><path d="M16 8h-2a1 1 0 0 0-1 1v2h3l-.5 3H13v7H10v-7H8v-3h2V9a4 4 0 0 1 4-4h2v3z" fill="white"/></svg>
+            Facebook Ads · Nutral
+          </div>
+          <div class="vtitle">"Natural alternative to Ozempic — Berberine + Ceylon cinnamon"</div>
+          <div class="vmeta">
+            <span class="chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              266 dias ativo
+            </span>
+            <span class="chip"><div class="geo-dot"></div>UK</span>
+            <span class="vbadge vid">VIDEO</span>
+          </div>
+          <div class="avatar-row">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Mulher na cozinha + bebida natural
+          </div>
+          <a class="vlink" href="#" onclick="return false">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            Ver anúncio
+          </a>
+        </div>
+        <div class="vanalysis">
+          <div class="anlbl">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Análise
+          </div>
+          <div class="antext">266 dias no UK — natural ozempic é o mecanismo mais forte no mercado britânico. Avatar mulher na cozinha + receita natural = padrão dominante.</div>
+          <span class="antag">natural ozempic</span>
+          <span class="antag">UK</span>
+          <span class="antag">266 dias</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ GOOGLE TRENDS ══ -->
+    <div class="screen" id="sc-gt">
+
+      <div class="smeta">
+        <div class="scard">
+          <div class="scard-lbl">Termos em crescimento</div>
+          <div class="scard-val">12</div>
+          <div class="scard-sub up">↑ 3 novos vs semana anterior</div>
+        </div>
+        <div class="scard">
+          <div class="scard-lbl">Top crescimento</div>
+          <div class="scard-val">+182%</div>
+          <div class="scard-sub up">salt trick for men · UK</div>
+        </div>
+        <div class="scard">
+          <div class="scard-lbl">Região monitorizada</div>
+          <div class="scard-val">UK</div>
+          <div class="scard-sub neu">Apenas UK — fase 1</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <div class="tbl-head">
+          <span>Termo de pesquisa</span>
+          <span>Região</span>
+          <span>Variação</span>
+          <span>Período</span>
+          <span>Volume relativo</span>
+        </div>
+
+        <div class="tbl-row">
+          <div class="kw">salt trick for men</div>
+          <div class="region"><div class="geo-dot"></div>UK</div>
+          <div class="chng up">+182%</div>
+          <div class="period-col">7 dias</div>
+          <div><div class="bar-wrap"><div class="bar" style="width:91%;background:var(--green)"></div></div></div>
+        </div>
+        <div class="tbl-row">
+          <div class="kw">salt trick weight loss</div>
+          <div class="region"><div class="geo-dot"></div>UK</div>
+          <div class="chng up">+125%</div>
+          <div class="period-col">7 dias</div>
+          <div><div class="bar-wrap"><div class="bar" style="width:68%;background:var(--green)"></div></div></div>
+        </div>
+        <div class="tbl-row">
+          <div class="kw">ice hack diet</div>
+          <div class="region"><div class="geo-dot"></div>UK</div>
+          <div class="chng up">+98%</div>
+          <div class="period-col">3 dias</div>
+          <div><div class="bar-wrap"><div class="bar" style="width:55%;background:var(--green)"></div></div></div>
+        </div>
+        <div class="tbl-row">
+          <div class="kw">alpine ice hack</div>
+          <div class="region"><div class="geo-dot"></div>UK</div>
+          <div class="chng up">+74%</div>
+          <div class="period-col">7 dias</div>
+          <div><div class="bar-wrap"><div class="bar" style="width:42%;background:var(--green)"></div></div></div>
+        </div>
+        <div class="tbl-row">
+          <div class="kw">men's fat burner supplement uk</div>
+          <div class="region"><div class="geo-dot"></div>UK</div>
+          <div class="chng up">+61%</div>
+          <div class="period-col">30 dias</div>
+          <div><div class="bar-wrap"><div class="bar" style="width:36%;background:var(--green)"></div></div></div>
+        </div>
+        <div class="tbl-row">
+          <div class="kw">natural testosterone booster</div>
+          <div class="region"><div class="geo-dot"></div>UK</div>
+          <div class="chng up">+38%</div>
+          <div class="period-col">7 dias</div>
+          <div><div class="bar-wrap"><div class="bar" style="width:24%;background:var(--green)"></div></div></div>
+        </div>
+        <div class="tbl-row">
+          <div class="kw">best weight loss supplement 2026</div>
+          <div class="region"><div class="geo-dot"></div>UK</div>
+          <div class="chng up">+22%</div>
+          <div class="period-col">30 dias</div>
+          <div><div class="bar-wrap"><div class="bar" style="width:16%;background:var(--gold)"></div></div></div>
+        </div>
+        <div class="tbl-row">
+          <div class="kw">ozempic alternative natural</div>
+          <div class="region"><div class="geo-dot"></div>UK</div>
+          <div class="chng dn">-14%</div>
+          <div class="period-col">7 dias</div>
+          <div><div class="bar-wrap"><div class="bar" style="width:8%;background:var(--red)"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab').forEach(t => {
+    t.addEventListener('click', function() {
+      document.querySelectorAll('.tab').forEach(x => x.classList.remove('on'));
+      document.querySelectorAll('.screen').forEach(x => x.classList.remove('on'));
+      this.classList.add('on');
+      document.getElementById('sc-' + this.dataset.tab).classList.add('on');
+    });
+  });
+
+  // PILLS
+  document.querySelectorAll('.pill').forEach(p => {
+    p.addEventListener('click', function() {
+      document.querySelectorAll('.pill').forEach(x => x.classList.remove('on'));
+      this.classList.add('on');
+    });
+  });
+
+  // DATE PICKER
+  const toggle = document.getElementById('dateToggle');
+  const drop   = document.getElementById('dateDrop');
+  const label  = document.getElementById('dateLabel');
+
+  toggle.addEventListener('click', e => { e.stopPropagation(); drop.classList.toggle('open'); });
+  document.addEventListener('click', () => drop.classList.remove('open'));
+  drop.addEventListener('click', e => e.stopPropagation());
+
+  document.getElementById('dateApply').addEventListener('click', () => {
+    const f = document.getElementById('dateFrom').value;
+    const t = document.getElementById('dateTo').value;
+    if (f && t) {
+      const fmt = d => { const [y,m,dd] = d.split('-'); return dd+'/'+m+'/'+y; };
+      label.textContent = fmt(f) + ' → ' + fmt(t);
+    }
+    drop.classList.remove('open');
+  });
+</script>
+</body>
+</html>
