@@ -979,12 +979,13 @@
 (function () {
 
   // ── State ──
-  var PERIOD_DAYS = 3;
-  var CUSTOM_FROM = null;
-  var CUSTOM_TO   = null;
-  var USE_CUSTOM  = false;
-  var HISTORY     = [];
-  var CACHE       = {};
+  var PERIOD_DAYS    = 3;
+  var CUSTOM_FROM    = null;
+  var CUSTOM_TO      = null;
+  var USE_CUSTOM     = false;
+  var FILTER_APPLIED = false;   // true only after user explicitly clicks a filter
+  var HISTORY        = [];
+  var CACHE          = {};
 
   // ── Helpers ──
   function fmtNum(n) {
@@ -1087,28 +1088,62 @@
     return HISTORY.filter(function (d) { return d >= cutoff; });
   }
 
+  // ── No results for this period ──
+  function renderNoPeriodData() {
+    var msg = [
+      '<div style="padding:52px 24px;text-align:center;">',
+        '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1.5" style="margin-bottom:14px;display:block;margin-left:auto;margin-right:auto">',
+          '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+        '</svg>',
+        '<div style="font-size:13px;color:var(--text-3);margin-bottom:4px;">',
+          'Nenhuma coleta encontrada para este per&iacute;odo',
+        '</div>',
+        '<div style="font-size:11px;color:var(--text-3);opacity:.6;">',
+          'Execute uma coleta ou selecione um per&iacute;odo diferente.',
+        '</div>',
+      '</div>'
+    ].join('');
+
+    document.getElementById('sc-yt').innerHTML = msg;
+
+    var scGt    = document.getElementById('sc-gt');
+    var tblWrap = scGt.querySelector('.tbl-wrap');
+    if (tblWrap) {
+      var tblHead = tblWrap.querySelector('.tbl-head');
+      tblWrap.innerHTML = (tblHead ? tblHead.outerHTML : '') + msg;
+    }
+    var smeta = scGt.querySelector('.smeta');
+    if (smeta) smeta.innerHTML = '';
+
+    var anSect = document.getElementById('analysis-section');
+    if (anSect) anSect.style.display = 'none';
+  }
+
   // ── Load data files for period and render ──
   function loadAndRender() {
     var dates = getDatesInPeriod();
-    var urls  = dates.length > 0
-      ? dates.map(function (d) { return '../data/' + d + '.json'; })
-      : ['../data/latest.json'];
+
+    // If a filter is active but no history dates match → show empty state, no fallback
+    if (dates.length === 0) {
+      renderNoPeriodData();
+      return;
+    }
+
+    var urls = dates.map(function (d) { return '../data/' + d + '.json'; });
 
     Promise.all(urls.map(function (u) { return fetchJson(u).catch(function () { return null; }); }))
       .then(function (results) {
         var valid = results.filter(Boolean);
+
+        // Files listed in history but couldn't be loaded → still no fallback
         if (valid.length === 0) {
-          // Final fallback: latest.json
-          return fetchJson('../data/latest.json').then(function (d) { return [d]; }).catch(function () { return []; });
+          renderNoPeriodData();
+          return;
         }
-        return valid;
-      })
-      .then(function (datasets) {
-        if (!datasets.length) { renderAll([], [], {}, ''); return; }
 
         // Merge youtube (dedup by url, sort by views desc)
         var seenUrls = {}, allYt = [];
-        datasets.forEach(function (d) {
+        valid.forEach(function (d) {
           (d.youtube || []).forEach(function (v) {
             if (!seenUrls[v.url]) { seenUrls[v.url] = 1; allYt.push(v); }
           });
@@ -1117,15 +1152,24 @@
 
         // Merge trends (dedup by keyword+pais)
         var seenKw = {}, allTr = [];
-        datasets.forEach(function (d) {
+        valid.forEach(function (d) {
           (d.trends || []).forEach(function (t) {
             var k = t.keyword + '|' + t.pais;
             if (!seenKw[k]) { seenKw[k] = 1; allTr.push(t); }
           });
         });
 
-        var latest = datasets[0];
+        var latest = valid[0];
         renderAll(allYt, allTr, latest.analise || {}, latest.data_execucao || '');
+      })
+      .catch(function () { renderNoPeriodData(); });
+  }
+
+  // ── Load latest.json directly (default view, no filter) ──
+  function loadLatest() {
+    fetchJson('../data/latest.json')
+      .then(function (d) {
+        renderAll(d.youtube || [], d.trends || [], d.analise || {}, d.data_execucao || '');
       })
       .catch(function () { renderAll([], [], {}, ''); });
   }
@@ -1186,7 +1230,8 @@
     p.addEventListener('click', function () {
       document.querySelectorAll('.pill').forEach(function (x) { x.classList.remove('on'); });
       this.classList.add('on');
-      USE_CUSTOM = false;
+      USE_CUSTOM     = false;
+      FILTER_APPLIED = true;    // user explicitly chose a period
       var txt = this.textContent.trim();
       if (txt.indexOf('30') !== -1)     PERIOD_DAYS = 30;
       else if (txt.indexOf('7') !== -1) PERIOD_DAYS = 7;
@@ -1200,9 +1245,10 @@
     var f = document.getElementById('dateFrom').value;
     var t = document.getElementById('dateTo').value;
     if (f && t) {
-      CUSTOM_FROM = f;
-      CUSTOM_TO   = t;
-      USE_CUSTOM  = true;
+      CUSTOM_FROM    = f;
+      CUSTOM_TO      = t;
+      USE_CUSTOM     = true;
+      FILTER_APPLIED = true;    // user explicitly chose a date range
       var fmt = function (d) { var p = d.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; };
       document.getElementById('dateLabel').textContent = fmt(f) + ' → ' + fmt(t);
       document.querySelectorAll('.pill').forEach(function (x) { x.classList.remove('on'); });
@@ -1211,15 +1257,18 @@
     loadAndRender();
   });
 
-  // ── Bootstrap: load history then render ──
+  // ── Bootstrap ──
+  // 1. Load history so period filters know which dates exist
+  // 2. Show latest.json immediately — no filter applied yet
   fetchJson('../data/history.json')
     .then(function (h) {
       HISTORY = (h.dates || []).slice().sort().reverse(); // newest first
-      loadAndRender();
     })
     .catch(function () {
       HISTORY = [];
-      loadAndRender();
+    })
+    .then(function () {
+      loadLatest();   // default view always shows latest.json, never filtered
     });
 
 })();
