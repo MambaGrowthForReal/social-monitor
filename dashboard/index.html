@@ -982,13 +982,14 @@
 
   // ── Trend row ──
   function buildTrendRow(t) {
-    var bar  = Math.min(Math.max(t.score || 0, 0), 100);
-    var grow = t.crescimento || 0;
+    var bar  = Math.min(Math.max(t.score_atual || t.score || 0, 0), 100);
+    var grow = t.crescimento_pct != null ? t.crescimento_pct : (t.crescimento || 0);
+    var pais = t.geo || t.pais || '';
     var cls  = grow > 0 ? 'up' : grow < 0 ? 'dn' : 'neu';
     var col  = grow > 0 ? 'var(--green)' : grow < 0 ? 'var(--red)' : 'var(--gold)';
     return ['<div class="tbl-row">',
       '<div class="kw">', t.keyword || '', '</div>',
-      '<div class="region"><div class="geo-dot"></div>', t.pais || '', '</div>',
+      '<div class="region"><div class="geo-dot"></div>', pais, '</div>',
       '<div class="chng ', cls, '">', grow > 0 ? '+' : '', grow, '%</div>',
       '<div class="period-col">7 dias</div>',
       '<div><div class="bar-wrap"><div class="bar" style="width:', bar, '%;background:', col, '"></div></div></div>',
@@ -1151,14 +1152,14 @@
     var tblWrap = scGt.querySelector('.tbl-wrap');
     var tblHead = tblWrap ? tblWrap.querySelector('.tbl-head') : null;
     if (trends.length) {
-      var growing = trends.filter(function (t) { return t.crescimento > 0; });
-      var topT    = trends.reduce(function (a, b) { return b.crescimento > a.crescimento ? b : a; }, trends[0]);
-      var paises  = trends.map(function (t) { return t.pais; }).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(', ');
+      var growing = trends.filter(function (t) { return (t.crescimento_pct != null ? t.crescimento_pct : (t.crescimento || 0)) > 0; });
+      var topT    = trends.reduce(function (a, b) { var ga = a.crescimento_pct != null ? a.crescimento_pct : (a.crescimento || 0); var gb = b.crescimento_pct != null ? b.crescimento_pct : (b.crescimento || 0); return gb > ga ? b : a; }, trends[0]);
+      var paises  = trends.map(function (t) { return t.geo || t.pais || ''; }).filter(function (v, i, a) { return v && a.indexOf(v) === i; }).join(', ');
       var smeta   = scGt.querySelector('.smeta');
       if (smeta) {
         smeta.innerHTML = [
           '<div class="scard"><div class="scard-lbl">Termos em crescimento</div><div class="scard-val">', growing.length, '</div><div class="scard-sub up">&uarr; ', growing.length, ' com crescimento positivo</div></div>',
-          '<div class="scard"><div class="scard-lbl">Top crescimento</div><div class="scard-val">+', topT.crescimento, '%</div><div class="scard-sub up">', topT.keyword, ' &middot; ', topT.pais, '</div></div>',
+          '<div class="scard"><div class="scard-lbl">Top crescimento</div><div class="scard-val">+', (topT.crescimento_pct != null ? topT.crescimento_pct : (topT.crescimento || 0)), '%</div><div class="scard-sub up">', topT.keyword, ' &middot; ', (topT.geo || topT.pais || ''), '</div></div>',
           '<div class="scard"><div class="scard-lbl">Regi&atilde;o monitorizada</div><div class="scard-val">', paises, '</div><div class="scard-sub neu">&Uacute;ltima execu&ccedil;&atilde;o: ', dataExec || '&mdash;', '</div></div>',
         ].join('');
       }
