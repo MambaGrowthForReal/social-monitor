@@ -1022,18 +1022,11 @@
 
   // ── Determine which history dates fall in selected period ──
   function getDatesInPeriod() {
-    if (HISTORY.length === 0) {
-      console.warn('[getDatesInPeriod] HISTORY is empty — history.json not loaded yet or failed');
-    }
     if (USE_CUSTOM && CUSTOM_FROM && CUSTOM_TO) {
-      var result = HISTORY.filter(function (d) { return d >= CUSTOM_FROM && d <= CUSTOM_TO; });
-      console.log('[getDatesInPeriod] custom', CUSTOM_FROM, '→', CUSTOM_TO, '| HISTORY:', HISTORY, '| matched:', result);
-      return result;
+      return HISTORY.filter(function (d) { return d >= CUSTOM_FROM && d <= CUSTOM_TO; });
     }
     var cutoff = shiftDate(todayStr(), -PERIOD_DAYS);
-    var result = HISTORY.filter(function (d) { return d >= cutoff; });
-    console.log('[getDatesInPeriod] last', PERIOD_DAYS, 'days (cutoff', cutoff, ') | HISTORY:', HISTORY, '| matched:', result);
-    return result;
+    return HISTORY.filter(function (d) { return d >= cutoff; });
   }
 
   // ── No results for this period ──
@@ -1073,39 +1066,23 @@
   function loadAndRender() {
     var dates = getDatesInPeriod();
 
-    console.group('[loadAndRender]');
-    console.log('DATA_PATH :', DATA_PATH);
-    console.log('Dates matched:', dates.length ? dates : '(none — will show empty state)');
-
     // If a filter is active but no history dates match → show empty state, no fallback
     if (dates.length === 0) {
-      console.warn('No dates in period — renderNoPeriodData()');
-      console.groupEnd();
       renderNoPeriodData();
       return;
     }
 
     var urls = dates.map(function (d) { return DATA_PATH + d + '.json'; });
-    console.log('URLs to fetch:', urls);
-    console.log('NOTE: should be dated files (e.g. data/2026-05-26.json), NOT latest.json');
 
     Promise.all(urls.map(function (u) {
-      console.log('⏳ FETCHING:', u);
       return fetchJson(u)
-        .then(function (d) {
-          console.log('✅ OK :', u, '→ YT:', (d.youtube||[]).length, 'FB:', (d.facebook||[]).length, 'TT:', (d.tiktok||[]).length, 'TR:', (d.trends||[]).length);
-          return d;
-        })
-        .catch(function (e) { console.error('❌ FAIL:', u, String(e)); return null; });
+        .catch(function () { return null; });
     }))
       .then(function (results) {
         var valid = results.filter(Boolean);
-        console.log('Files loaded:', valid.length + '/' + results.length);
 
         // Files listed in history but couldn't be loaded → still no fallback
         if (valid.length === 0) {
-          console.warn('All fetches failed — renderNoPeriodData()');
-          console.groupEnd();
           renderNoPeriodData();
           return;
         }
@@ -1135,13 +1112,10 @@
           });
         });
 
-        console.log('Merged items — YT:', allYt.length, '| TT:', allTt.length, '| FB:', allFb.length, '| TR:', allTr.length);
-        console.groupEnd();
-
         var latest = valid[0];
         renderAll(allYt, allTt, allFb, allTr, latest.analise || {}, latest.data_execucao || '');
       })
-      .catch(function (e) { console.error('[loadAndRender] Unexpected error:', e); console.groupEnd(); renderNoPeriodData(); });
+      .catch(function () { renderNoPeriodData(); });
   }
 
   // ── Load latest.json directly (default view, no filter) ──
@@ -1254,17 +1228,6 @@
       document.getElementById('dateLabel').textContent = fmt(f) + ' → ' + fmt(t);
       document.querySelectorAll('.pill').forEach(function (x) { x.classList.remove('on'); });
 
-      // ── Debug logging ──
-      var matched = HISTORY.filter(function (d) { return d >= f && d <= t; });
-      console.group('[DateFilter] Custom range applied');
-      console.log('From     :', f);
-      console.log('To       :', t);
-      console.log('History  :', HISTORY);
-      console.log('Matched  :', matched.length ? matched : '(none)');
-      if (matched.length === 0) {
-        console.warn('No history dates fall in this range — renderNoPeriodData() will be shown');
-      }
-      console.groupEnd();
     }
     document.getElementById('dateDrop').classList.remove('open');
     loadAndRender();
@@ -1277,10 +1240,8 @@
     .then(function (h) {
       // history.json format: {"dates": ["2026-05-26", "2026-05-25"]}
       HISTORY = (h.dates || []).slice().sort().reverse(); // newest first
-      console.log('[Bootstrap] history.json loaded. Raw:', h, '→ HISTORY:', HISTORY);
     })
-    .catch(function (e) {
-      console.error('[Bootstrap] Failed to load history.json from:', DATA_PATH + 'history.json', e);
+    .catch(function () {
       HISTORY = [];
     })
     .then(function () {
