@@ -1215,6 +1215,18 @@
       var fmt = function (d) { var p = d.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; };
       document.getElementById('dateLabel').textContent = fmt(f) + ' → ' + fmt(t);
       document.querySelectorAll('.pill').forEach(function (x) { x.classList.remove('on'); });
+
+      // ── Debug logging ──
+      var matched = HISTORY.filter(function (d) { return d >= f && d <= t; });
+      console.group('[DateFilter] Custom range applied');
+      console.log('From     :', f);
+      console.log('To       :', t);
+      console.log('History  :', HISTORY);
+      console.log('Matched  :', matched.length ? matched : '(none)');
+      if (matched.length === 0) {
+        console.warn('No history dates fall in this range — renderNoPeriodData() will be shown');
+      }
+      console.groupEnd();
     }
     document.getElementById('dateDrop').classList.remove('open');
     loadAndRender();
