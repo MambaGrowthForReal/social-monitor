@@ -809,7 +809,9 @@
 
   toggle.addEventListener('click', e => { e.stopPropagation(); drop.classList.toggle('open'); });
   document.addEventListener('click', () => drop.classList.remove('open'));
-  drop.addEventListener('click', e => e.stopPropagation());
+  // Prevent any click inside the dropdown from bubbling to the document close handler
+  drop.addEventListener('click',      e => e.stopPropagation());
+  drop.addEventListener('mousedown',  e => e.stopPropagation());
 </script>
 
 <!-- ── DATA LOADER ── -->
@@ -1204,7 +1206,13 @@
   });
 
   // ── Calendar date range ──
-  document.getElementById('dateApply').addEventListener('click', function () {
+  // Use mousedown so it fires before any blur/close chain triggered by click
+  document.getElementById('dateApply').addEventListener('mousedown', function (e) {
+    e.preventDefault();   // prevent focus leaving the date inputs
+    e.stopPropagation();  // prevent document click handler from closing dropdown early
+  });
+  document.getElementById('dateApply').addEventListener('click', function (e) {
+    e.stopPropagation();
     var f = document.getElementById('dateFrom').value;
     var t = document.getElementById('dateTo').value;
     if (f && t) {
