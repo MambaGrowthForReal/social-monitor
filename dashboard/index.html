@@ -1022,11 +1022,18 @@
 
   // ── Determine which history dates fall in selected period ──
   function getDatesInPeriod() {
+    if (HISTORY.length === 0) {
+      console.warn('[getDatesInPeriod] HISTORY is empty — history.json not loaded yet or failed');
+    }
     if (USE_CUSTOM && CUSTOM_FROM && CUSTOM_TO) {
-      return HISTORY.filter(function (d) { return d >= CUSTOM_FROM && d <= CUSTOM_TO; });
+      var result = HISTORY.filter(function (d) { return d >= CUSTOM_FROM && d <= CUSTOM_TO; });
+      console.log('[getDatesInPeriod] custom', CUSTOM_FROM, '→', CUSTOM_TO, '| HISTORY:', HISTORY, '| matched:', result);
+      return result;
     }
     var cutoff = shiftDate(todayStr(), -PERIOD_DAYS);
-    return HISTORY.filter(function (d) { return d >= cutoff; });
+    var result = HISTORY.filter(function (d) { return d >= cutoff; });
+    console.log('[getDatesInPeriod] last', PERIOD_DAYS, 'days (cutoff', cutoff, ') | HISTORY:', HISTORY, '| matched:', result);
+    return result;
   }
 
   // ── No results for this period ──
@@ -1263,9 +1270,12 @@
   // 2. Show latest.json immediately — no filter applied yet
   fetchJson(DATA_PATH + 'history.json')
     .then(function (h) {
+      // history.json format: {"dates": ["2026-05-26", "2026-05-25"]}
       HISTORY = (h.dates || []).slice().sort().reverse(); // newest first
+      console.log('[Bootstrap] history.json loaded. Raw:', h, '→ HISTORY:', HISTORY);
     })
-    .catch(function () {
+    .catch(function (e) {
+      console.error('[Bootstrap] Failed to load history.json from:', DATA_PATH + 'history.json', e);
       HISTORY = [];
     })
     .then(function () {
