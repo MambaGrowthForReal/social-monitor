@@ -843,10 +843,16 @@
     return '<div style="padding:40px 24px;text-align:center;color:var(--text-3);font-size:13px;">Aguardando dados...</div>';
   }
   function todayStr() {
-    return new Date().toISOString().slice(0, 10);
+    // Use local date (not UTC) so the filter matches the user's timezone
+    var d = new Date();
+    return d.getFullYear() + '-' +
+      String(d.getMonth() + 1).padStart(2, '0') + '-' +
+      String(d.getDate()).padStart(2, '0');
   }
   function shiftDate(iso, days) {
-    var d = new Date(iso); d.setDate(d.getDate() + days);
+    // Parse as UTC noon to avoid DST / timezone off-by-one errors
+    var d = new Date(iso + 'T12:00:00Z');
+    d.setUTCDate(d.getUTCDate() + days);
     return d.toISOString().slice(0, 10);
   }
 
