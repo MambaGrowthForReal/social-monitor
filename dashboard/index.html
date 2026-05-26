@@ -1087,11 +1087,16 @@
 
     var urls = dates.map(function (d) { return DATA_PATH + d + '.json'; });
     console.log('URLs to fetch:', urls);
+    console.log('NOTE: should be dated files (e.g. data/2026-05-26.json), NOT latest.json');
 
     Promise.all(urls.map(function (u) {
+      console.log('⏳ FETCHING:', u);
       return fetchJson(u)
-        .then(function (d) { console.log('✅ OK :', u); return d; })
-        .catch(function (e) { console.error('❌ FAIL:', u, e); return null; });
+        .then(function (d) {
+          console.log('✅ OK :', u, '→ YT:', (d.youtube||[]).length, 'FB:', (d.facebook||[]).length, 'TT:', (d.tiktok||[]).length, 'TR:', (d.trends||[]).length);
+          return d;
+        })
+        .catch(function (e) { console.error('❌ FAIL:', u, String(e)); return null; });
     }))
       .then(function (results) {
         var valid = results.filter(Boolean);
