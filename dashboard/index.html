@@ -1066,20 +1066,34 @@
   function loadAndRender() {
     var dates = getDatesInPeriod();
 
+    console.group('[loadAndRender]');
+    console.log('DATA_PATH :', DATA_PATH);
+    console.log('Dates matched:', dates.length ? dates : '(none — will show empty state)');
+
     // If a filter is active but no history dates match → show empty state, no fallback
     if (dates.length === 0) {
+      console.warn('No dates in period — renderNoPeriodData()');
+      console.groupEnd();
       renderNoPeriodData();
       return;
     }
 
     var urls = dates.map(function (d) { return DATA_PATH + d + '.json'; });
+    console.log('URLs to fetch:', urls);
 
-    Promise.all(urls.map(function (u) { return fetchJson(u).catch(function () { return null; }); }))
+    Promise.all(urls.map(function (u) {
+      return fetchJson(u)
+        .then(function (d) { console.log('✅ OK :', u); return d; })
+        .catch(function (e) { console.error('❌ FAIL:', u, e); return null; });
+    }))
       .then(function (results) {
         var valid = results.filter(Boolean);
+        console.log('Files loaded:', valid.length + '/' + results.length);
 
         // Files listed in history but couldn't be loaded → still no fallback
         if (valid.length === 0) {
+          console.warn('All fetches failed — renderNoPeriodData()');
+          console.groupEnd();
           renderNoPeriodData();
           return;
         }
@@ -1109,10 +1123,13 @@
           });
         });
 
+        console.log('Merged items — YT:', allYt.length, '| TT:', allTt.length, '| FB:', allFb.length, '| TR:', allTr.length);
+        console.groupEnd();
+
         var latest = valid[0];
         renderAll(allYt, allTt, allFb, allTr, latest.analise || {}, latest.data_execucao || '');
       })
-      .catch(function () { renderNoPeriodData(); });
+      .catch(function (e) { console.error('[loadAndRender] Unexpected error:', e); console.groupEnd(); renderNoPeriodData(); });
   }
 
   // ── Load latest.json directly (default view, no filter) ──
