@@ -825,6 +825,14 @@
   var HISTORY        = [];
   var CACHE          = {};
 
+  // ── Base path for data files (works from dashboard/ subdir and root) ──
+  var DATA_PATH = (function () {
+    var p = window.location.pathname;
+    // If served from .../dashboard/index.html → go up one level
+    if (p.indexOf('/dashboard/') !== -1) return '../data/';
+    return 'data/';
+  }());
+
   // ── Helpers ──
   function fmtNum(n) {
     if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.0', '') + 'M';
@@ -1056,7 +1064,7 @@
       return;
     }
 
-    var urls = dates.map(function (d) { return '../data/' + d + '.json'; });
+    var urls = dates.map(function (d) { return DATA_PATH + d + '.json'; });
 
     Promise.all(urls.map(function (u) { return fetchJson(u).catch(function () { return null; }); }))
       .then(function (results) {
@@ -1088,7 +1096,7 @@
         var seenKw = {}, allTr = [];
         valid.forEach(function (d) {
           (d.trends || []).forEach(function (t) {
-            var k = t.keyword + '|' + t.pais;
+            var k = t.keyword + '|' + (t.geo || t.pais || '');
             if (!seenKw[k]) { seenKw[k] = 1; allTr.push(t); }
           });
         });
@@ -1101,7 +1109,7 @@
 
   // ── Load latest.json directly (default view, no filter) ──
   function loadLatest() {
-    fetchJson('../data/latest.json')
+    fetchJson(DATA_PATH + 'latest.json')
       .then(function (d) {
         renderAll(
           d.youtube  || [],
@@ -1209,7 +1217,7 @@
   // ── Bootstrap ──
   // 1. Load history so period filters know which dates exist
   // 2. Show latest.json immediately — no filter applied yet
-  fetchJson('../data/history.json')
+  fetchJson(DATA_PATH + 'history.json')
     .then(function (h) {
       HISTORY = (h.dates || []).slice().sort().reverse(); // newest first
     })
