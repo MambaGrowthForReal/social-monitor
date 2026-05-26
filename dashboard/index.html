@@ -513,11 +513,11 @@
       <div class="date-drop" id="dateDrop">
         <div class="dd-row">
           <div class="dd-lbl">De</div>
-          <input class="dd-input" type="date" id="dateFrom" value="2026-05-15"/>
+          <input class="dd-input" type="date" id="dateFrom"/>
         </div>
         <div class="dd-row">
           <div class="dd-lbl">Até</div>
-          <input class="dd-input" type="date" id="dateTo" value="2026-05-22"/>
+          <input class="dd-input" type="date" id="dateTo"/>
         </div>
         <button class="dd-apply" id="dateApply">Aplicar período</button>
       </div>
@@ -1215,7 +1215,7 @@
     e.stopPropagation();
     var f = document.getElementById('dateFrom').value;
     var t = document.getElementById('dateTo').value;
-    alert('Filtro aplicado: ' + f + ' até ' + t);
+
     if (f && t) {
       CUSTOM_FROM    = f;
       CUSTOM_TO      = t;
