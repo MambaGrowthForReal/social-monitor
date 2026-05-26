@@ -168,19 +168,28 @@ if __name__ == "__main__":
 
     print(f"  After title filter: {len(final)} kept, {len(removed)} removed")
 
-    # 5. Build payload
+    # 5. Build payload — preserve existing tiktok / facebook / trends data
+    import os as _os, json as _json
+    _latest = _os.path.join(dedup.DATA_DIR, "latest.json")
+    _existing = {}
+    try:
+        with open(_latest, encoding="utf-8") as _f:
+            _existing = _json.load(_f)
+    except Exception:
+        pass
+
     payload = {
         "data_execucao": datetime.now().strftime("%d/%m/%Y %H:%M"),
         "youtube":  final,
-        "tiktok":   [],
-        "facebook": [],
-        "trends":   [],
-        "analise": {
+        "tiktok":   _existing.get("tiktok",   []),
+        "facebook": _existing.get("facebook", []),
+        "trends":   _existing.get("trends",   []),
+        "analise":  _existing.get("analise",  {
             "tendencias":         "",
             "mecanismos_em_alta": "",
             "avatares_em_alta":   "",
             "recomendacoes":      "",
-        },
+        }),
     }
 
     # 6. Save with cross-run URL deduplication
