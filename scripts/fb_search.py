@@ -30,20 +30,18 @@ DATA_DIR = dedup.DATA_DIR
 COUNTRIES = ["US", "GB", "DE"]
 
 KEYWORDS = [
-    "salt trick weight loss",
-    "pink salt trick weight loss",
-    "jelly trick weight loss",
-    "natural ozempic",
+    "salt trick",
+    "pink salt trick",
+    "pink salt recipe",
+    "gelatin trick",
+    "gelatin recipe",
+    "gelatine trick",
+    "gelatine recipe",
+    "ice water hack",
+    "ice trick",
+    "pink ice trick",
     "natural mounjaro",
-    "belly fat",
-    "burn fat",
-    "ozempic",
-    "mounjaro",
-    "lose weight",
-    "ice hack weight loss",
-    "bariatric trick",
-    "japanese trick weight loss",
-    "korean trick weight loss",
+    "natural ozempic",
 ]
 
 MIN_DAYS   = 10
