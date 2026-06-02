@@ -1109,7 +1109,7 @@
       return;
     }
 
-    var urls = dates.map(function (d) { return DATA_PATH + d + '.json'; });
+    var urls = dates.map(function (d) { return DATA_PATH + d + '.json?v=' + Date.now(); });
 
     Promise.all(urls.map(function (u) {
       return fetchJson(u)
@@ -1157,7 +1157,7 @@
 
   // ── Load latest.json directly (default view, no filter) ──
   function loadLatest() {
-    fetchJson(DATA_PATH + 'latest.json')
+    fetchJson(DATA_PATH + 'latest.json?v=' + Date.now())
       .then(function (d) {
         renderAll(
           d.youtube  || [],
@@ -1313,7 +1313,7 @@
   // ── Bootstrap ──
   // 1. Load history so period filters know which dates exist
   // 2. Show latest.json immediately — no filter applied yet
-  fetchJson(DATA_PATH + 'history.json')
+  fetchJson(DATA_PATH + 'history.json?v=' + Date.now())
     .then(function (h) {
       // history.json format: {"dates": ["2026-05-26", "2026-05-25"]}
       HISTORY = (h.dates || []).slice().sort().reverse(); // newest first
