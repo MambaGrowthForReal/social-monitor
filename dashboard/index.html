@@ -159,6 +159,24 @@
     border-bottom: 1px solid var(--border);
   }
   .flab { font-size: 11px; color: var(--text-3); margin-right: 2px; }
+  /* ── NICHE BAR ── */
+  .nbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 24px;
+    background: var(--bg-deep);
+    border-bottom: 1px solid var(--border);
+  }
+  /* ── FB MEDIA FILTER ── */
+  .media-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0 12px;
+  }
+  .pill.media.on { background: #1a2d1a; border-color: var(--green); color: var(--green); }
+  .pill.media { border-color: var(--border2); color: var(--text-3); }
   .pill {
     padding: 5px 15px;
     border-radius: 7px;
@@ -568,6 +586,12 @@
     <button class="pill">30 dias</button>
   </div>
 
+  <!-- NICHE BAR -->
+  <div class="nbar">
+    <span class="flab">Nicho:</span>
+    <button class="pill niche on" data-niche="weight-loss">Weight Loss</button>
+  </div>
+
   <!-- ── ANALYSIS SECTION ── -->
   <div id="analysis-section" style="display:none; padding:16px 24px 18px; border-bottom:1px solid var(--border); background:var(--bg-deep);">
     <div class="sec-ttl" style="margin-bottom:12px; display:flex; align-items:center; gap:8px;">
@@ -700,7 +724,15 @@
     <div class="screen" id="sc-tt"></div>
 
     <!-- ══ FACEBOOK ADS ══ -->
-    <div class="screen" id="sc-fb"></div>
+    <div class="screen" id="sc-fb">
+      <div class="media-bar">
+        <span class="flab">Tipo:</span>
+        <button class="pill media on" id="fb-all">Todos</button>
+        <button class="pill media" id="fb-video">Vídeo</button>
+        <button class="pill media" id="fb-image">Imagem</button>
+      </div>
+      <div id="sc-fb-list"></div>
+    </div>
 
     <!-- ══ GOOGLE TRENDS ══ -->
     <div class="screen" id="sc-gt">
@@ -828,6 +860,8 @@
   var USE_CUSTOM     = false;
   var FILTER_APPLIED = false;   // true only after user explicitly clicks a filter
   var HISTORY        = [];
+  var FB_MEDIA       = 'all';   // 'all' | 'video' | 'image'
+  var ALL_FB         = [];      // current FB dataset for re-filtering
   var CACHE          = {};
 
   // ── Base path for data files (works from dashboard/ subdir and root) ──
@@ -1050,7 +1084,7 @@
 
     document.getElementById('sc-yt').innerHTML = msg;
     document.getElementById('sc-tt').innerHTML = msg;
-    document.getElementById('sc-fb').innerHTML = msg;
+    document.getElementById('sc-fb-list').innerHTML = msg;
 
     var scGt    = document.getElementById('sc-gt');
     var tblWrap = scGt.querySelector('.tbl-wrap');
@@ -1165,9 +1199,9 @@
     var scTt = document.getElementById('sc-tt');
     scTt.innerHTML = tiktok.length ? tiktok.map(buildTtCard).join('') : aguardando();
 
-    // Facebook Ads
-    var scFb = document.getElementById('sc-fb');
-    scFb.innerHTML = facebook.length ? facebook.map(buildFbCard).join('') : aguardando();
+    // Facebook Ads — store for media filter re-render
+    ALL_FB = facebook;
+    renderFbList();
 
     // Trends
     var scGt    = document.getElementById('sc-gt');
@@ -1191,15 +1225,55 @@
     }
   }
 
+  // ── renderFbList — apply media type filter to Facebook ads ──
+  function renderFbList() {
+    var filtered = ALL_FB;
+    if (FB_MEDIA === 'video') {
+      filtered = ALL_FB.filter(function (a) { return (a.tipo_media || '').toUpperCase() === 'VIDEO'; });
+    } else if (FB_MEDIA === 'image') {
+      filtered = ALL_FB.filter(function (a) { return (a.tipo_media || '').toUpperCase() === 'IMAGE'; });
+    }
+    document.getElementById('sc-fb-list').innerHTML = filtered.length ? filtered.map(buildFbCard).join('') : aguardando();
+  }
+
+  // ── Facebook media type buttons ──
+  document.getElementById('fb-all').addEventListener('click', function () {
+    FB_MEDIA = 'all';
+    document.querySelectorAll('.pill.media').forEach(function (x) { x.classList.remove('on'); });
+    this.classList.add('on');
+    renderFbList();
+  });
+  document.getElementById('fb-video').addEventListener('click', function () {
+    FB_MEDIA = 'video';
+    document.querySelectorAll('.pill.media').forEach(function (x) { x.classList.remove('on'); });
+    this.classList.add('on');
+    renderFbList();
+  });
+  document.getElementById('fb-image').addEventListener('click', function () {
+    FB_MEDIA = 'image';
+    document.querySelectorAll('.pill.media').forEach(function (x) { x.classList.remove('on'); });
+    this.classList.add('on');
+    renderFbList();
+  });
+
+  // ── Niche pill buttons ──
+  document.querySelectorAll('.pill.niche').forEach(function (p) {
+    p.addEventListener('click', function () {
+      document.querySelectorAll('.pill.niche').forEach(function (x) { x.classList.remove('on'); });
+      this.classList.add('on');
+      // Future: set ACTIVE_NICHE and re-filter; for now weight-loss is the only option
+    });
+  });
+
   // ── Period pill buttons ──
   // Clone to remove old listeners, then re-attach
-  document.querySelectorAll('.pill').forEach(function (p) {
+  document.querySelectorAll('.pill:not(.media):not(.niche)').forEach(function (p) {
     var n = p.cloneNode(true);
     p.parentNode.replaceChild(n, p);
   });
-  document.querySelectorAll('.pill').forEach(function (p) {
+  document.querySelectorAll('.pill:not(.media):not(.niche)').forEach(function (p) {
     p.addEventListener('click', function () {
-      document.querySelectorAll('.pill').forEach(function (x) { x.classList.remove('on'); });
+      document.querySelectorAll('.pill:not(.media):not(.niche)').forEach(function (x) { x.classList.remove('on'); });
       this.classList.add('on');
       USE_CUSTOM     = false;
       FILTER_APPLIED = true;    // user explicitly chose a period
@@ -1229,7 +1303,7 @@
       FILTER_APPLIED = true;    // user explicitly chose a date range
       var fmt = function (d) { var p = d.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; };
       document.getElementById('dateLabel').textContent = fmt(f) + ' → ' + fmt(t);
-      document.querySelectorAll('.pill').forEach(function (x) { x.classList.remove('on'); });
+      document.querySelectorAll('.pill:not(.media):not(.niche)').forEach(function (x) { x.classList.remove('on'); });
 
     }
     document.getElementById('dateDrop').classList.remove('open');
