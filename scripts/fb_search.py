@@ -108,6 +108,19 @@ def _is_english(text):
     words = set(re.findall(r'\b[a-z]{2,}\b', text.lower()))
     return len(words & markers) >= 4
 
+# ── Relevance filter ──────────────────────────────────────────────────────────
+_RELEVANCE_WORDS = {
+    "weight", "loss", "fat", "pounds", "slim", "ozempic", "mounjaro",
+    "belly", "diet", "lose", "burn", "melt", "calories", "obesity",
+    "overweight", "glp", "tirzepatide", "semaglutide", "bariatric",
+    "metaboli", "appetite", "hunger", "crave", "slimming",
+}
+
+def _is_relevant(text):
+    """Keep ad only if text contains at least one weight-loss keyword."""
+    t = text.lower()
+    return any(w in t for w in _RELEVANCE_WORDS)
+
 def _detect_avatar(text):
     """Classify the avatar/angle present in the ad copy."""
     t = text.lower()
@@ -182,6 +195,8 @@ def _parse_body(body_text, country, keyword):
         if len(ad_text) < 15:
             continue
         if not _is_english(ad_text):
+            continue
+        if not _is_relevant(ad_text):
             continue
 
         # ── Media type ──
