@@ -1,5 +1,5 @@
 {
-  "data_execucao": "18/06/2026 03:24",
+  "data_execucao": "18/06/2026 05:15",
   "youtube": [
     {
       "titulo": "Sean O'Malley on losing weight before a fight | Friends Keep Secrets",
@@ -54,17 +54,31 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "if I can do it, YOU CAN!\n#gymprogress #gymtok #progress #discipline #gymmotivation \nfitnessmotivation weightloss consistency girlswholift gymtransformation healthy habits ",
+      "canal": ".layomi",
+      "views": 307300,
+      "likes": 85200,
+      "comentarios": 613,
+      "data": "2026-06-15",
+      "dias_desde_publicacao": 3,
+      "url": "https://www.tiktok.com/@.layomi/video/7651649289306819847",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o4DZoFDijIDiPIOe5wEIQzCAHCuAoe6iYUfw8s~tplv-tiktokx-origin.image?dr=9636&x-expires=1781942400&x-signature=DfAIAgMeememO4%2Fdh6VubE5u2R4%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "weightloss",
+      "analise": ""
+    }
+  ],
   "facebook": [],
   "trends": [
     {
-      "keyword": "belly fat",
+      "keyword": "mounjaro",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 57,
+      "score_atual": 40,
       "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": 67.6
+      "score_minimo": 28,
+      "crescimento_pct": -2.4
     }
   ],
   "analise": {
@@ -72,6 +86,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
