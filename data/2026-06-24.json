@@ -1,5 +1,5 @@
 {
-  "data_execucao": "24/06/2026 02:36",
+  "data_execucao": "24/06/2026 02:46",
   "youtube": [
     {
       "titulo": "He LOST 300 Lbs... Now He's Losing His Wife | Jelly Roll Breaks Silence on Divorce",
@@ -28,7 +28,47 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "If the scale goes up on your fat loss journey…\n\n1. If it’s straight away… girl, give it time 😭 it’s probably water weight or hormones, not fat\n2. If you’ve been consistent for a while now you’re likel",
+      "canal": "bethslegs",
+      "views": 194800,
+      "likes": 7269,
+      "comentarios": 33,
+      "data": "2026-06-18",
+      "dias_desde_publicacao": 6,
+      "url": "https://www.tiktok.com/@bethslegs/video/7652802340231171350",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/o0DBG9yf5ocqFFAuQOmsRbFDgE5EkfFwWYNsQw~tplv-tiktokx-origin.image?dr=9636&x-expires=1782450000&x-signature=TourE4IsJJZUuvw3OC9%2Blx%2Bwepw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "weightloss",
+      "analise": ""
+    },
+    {
+      "titulo": "When Does Your Body Actually Start Burning Visceral Fat While Walking? #WalkingBenefits #VisceralFat #FitnessFacts #HealthAndWellness #BodyScience  \n",
+      "canal": "user1133134855437",
+      "views": 63000,
+      "likes": 1012,
+      "comentarios": 22,
+      "data": "2026-06-18",
+      "dias_desde_publicacao": 6,
+      "url": "https://www.tiktok.com/@user1133134855437/video/7652650034890034446",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/oQLI4e1zZAYjG3yQBvdIARCkrHZLIdOlUegmfo~tplv-tiktokx-origin.image?dr=9636&x-expires=1782450000&x-signature=TxmbX7kKZ9qzwv42yafkhvVi9Nw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "burn fat",
+      "analise": ""
+    },
+    {
+      "titulo": "#fat #chubbygirl #bigbelly #weightgain #belly ",
+      "canal": "emy11bbw",
+      "views": 60700,
+      "likes": 799,
+      "comentarios": 7,
+      "data": "2026-06-17",
+      "dias_desde_publicacao": 7,
+      "url": "https://www.tiktok.com/@emy11bbw/video/7652285952919997710",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/owAABCa1JiXAAIpIDEyfBiYGABz9qTE284Zaqw~tplv-tiktokx-origin.image?dr=9636&x-expires=1782450000&x-signature=SQB7eymoc4iU2OJdSTBwVMFUFv0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "belly fat",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "Daniel Lopez",
@@ -299,22 +339,13 @@
   ],
   "trends": [
     {
-      "keyword": "mounjaro",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 73,
-      "score_maximo": 100,
-      "score_minimo": 40,
-      "crescimento_pct": 5.8
-    },
-    {
       "keyword": "belly fat",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 93,
+      "score_atual": 71,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 17.7
+      "crescimento_pct": 9.2
     }
   ],
   "analise": {
@@ -322,69 +353,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [
-      {
-        "description": "All 19 ads share identical ad copy ('I thought this was another fake weight loss hack... until I tried it. Every morning, I started doing this simple 10-second baking soda trick before breakfast… and within days, my stomach felt flatter'), the same keyword 'gelatin trick', and are running within the same 17-18 day window — strongly indicating one original video/image creative distributed across multiple page accounts and geo targets.",
-        "ad_indices": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19
-        ],
-        "pages": [
-          "Daniel Lopez",
-          "Sierra Lundy Yfn",
-          "Jason Ramirez",
-          "Howard Gonzales"
-        ]
-      }
-    ],
-    "frequent_avatars": [
-      {
-        "type": "Skeptic-turned-believer: everyday person who dismisses weight loss hacks as fake, tries one out of curiosity, and is surprised by fast visible results — relatable, self-deprecating, low-sophistication audience proxy",
-        "count": 19,
-        "ad_indices": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19
-        ]
-      }
-    ],
-    "dominant_mechanism": "The '10-second baking soda trick before breakfast' — a simple, low-effort morning ritual positioned as a gut/bloat intervention that accelerates fat loss through an accessible kitchen ingredient, disguised under the broader 'gelatin trick' keyword umbrella.",
-    "emerging_angle": "The deliberate mismatch between the keyword ('gelatin trick') and the ad copy ('baking soda trick') suggests a high-potential angle of curiosity-gap deception — where the traffic keyword primes one mechanism but the creative pivots to another, potentially increasing CTR by exploiting dual curiosity triggers simultaneously.",
-    "market_signal": "The UK and US markets are currently stress-testing a single viral 'morning ritual' creative at scale by distributing it across multiple white-label Facebook pages to avoid ad fatigue flags, while using a curiosity-gap hook that blends skepticism-disarming language with a simple kitchen-ingredient mechanism to appeal to deal-weary, diet-fatigued consumers."
   }
 }
