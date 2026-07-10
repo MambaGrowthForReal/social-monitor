@@ -1,5 +1,5 @@
 {
-  "data_execucao": "10/07/2026 08:55",
+  "data_execucao": "10/07/2026 15:35",
   "youtube": [
     {
       "titulo": "I can’t believe they lost this much weight 😳",
@@ -28,26 +28,53 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "#cardio #fit #workoutathome #burnfat #workout ",
+      "canal": "workout_at_home_2025",
+      "views": 225700,
+      "likes": 5278,
+      "comentarios": 14,
+      "data": "2026-07-09",
+      "dias_desde_publicacao": 1,
+      "url": "https://www.tiktok.com/@workout_at_home_2025/video/7660455886103579934",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/oAIGCPIEKAoM5eUeR7fdzOAQGeAnLQATdJApZg~tplv-tiktokx-origin.image?dr=9636&x-expires=1783857600&x-signature=YJzCkvfo0HeQKt7kWOG74JuT1z4%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "burn fat",
+      "analise": ""
+    },
+    {
+      "titulo": "In addition to this workout I made healthier lifestyle choices. Making 95% of my meals at home to control how much salt etc I’m consuming, adding veggies wherever I can, drinking 3L of water a day, ge",
+      "canal": "mimifitmom",
+      "views": 216600,
+      "likes": 10300,
+      "comentarios": 66,
+      "data": "2026-06-16",
+      "dias_desde_publicacao": 24,
+      "url": "https://www.tiktok.com/@mimifitmom/video/7652066692553624854",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oAyBmK1likgDIiiw1hvApmMfkz6IAVCGxICQdL~tplv-tiktokx-origin.image?dr=9636&x-expires=1783854000&x-signature=yxkE4sYNHZ5CPXG2Htelec%2FnVAY%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "weightloss",
+      "analise": ""
+    }
+  ],
   "facebook": [],
   "trends": [
     {
-      "keyword": "ice water hack",
+      "keyword": "GLP-1",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 100,
+      "score_atual": 12,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 9900.0
+      "crescimento_pct": 9.1
     },
     {
-      "keyword": "lose weight fast",
+      "keyword": "burn fat",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 82,
+      "score_atual": 29,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 148.5
+      "crescimento_pct": 16.0
     }
   ],
   "analise": {
