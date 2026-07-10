@@ -1,7 +1,73 @@
 {
-  "data_execucao": "09/07/2026 02:37",
+  "data_execucao": "09/07/2026 02:50",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Очень вкусное натуральное лечо🔥 #кумирецепт",
+      "canal": "ekaterinakumi",
+      "views": 8500000,
+      "likes": 141400,
+      "comentarios": 1536,
+      "data": "2021-08-03",
+      "dias_desde_publicacao": 1801,
+      "url": "https://www.tiktok.com/@ekaterinakumi/video/6992115129802411265",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-eu.com/tos-alisg-p-0037/a936cc704f204ae0874f1e4effb538dc~tplv-tiktokx-dmt-logom:tos-alisg-i-0000/14835d00414c4f1b813ad3849cc4d497.image?dr=10393&x-expires=1783746000&x-signature=9UrfbV0wKaSd3Ldwq%2Fn12jQIcu0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=no1a",
+      "keyword": "natural recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "Si estás pensando en consumir MOUNJARO.. escucha esto!",
+      "canal": "salidadeemergenciapod",
+      "views": 3500000,
+      "likes": 154700,
+      "comentarios": 2696,
+      "data": "2026-04-08",
+      "dias_desde_publicacao": 92,
+      "url": "https://www.tiktok.com/@salidadeemergenciapod/video/7626452296137723143",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-4863-sg/ogAfroq7UgtQfZVGQTTAkOMFXl8LSFf3tgxaCf~tplv-tiktokx-origin.image?dr=9636&x-expires=1783746000&x-signature=waBP0i44RsWB7t0hGRddWopi7aY%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "natural mounjaro",
+      "analise": ""
+    },
+    {
+      "titulo": "✨Get hooping today 30% off + free belt & sweat cream ",
+      "canal": "infinityhoop",
+      "views": 866100,
+      "likes": 27300,
+      "comentarios": 1017,
+      "data": "2024-12-31",
+      "dias_desde_publicacao": 555,
+      "url": "https://www.tiktok.com/@infinityhoop/video/7454664535937568046",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-maliva-i-e1os8tt47a-us/c9db7808ccc1468583dc1f2d823ccecd~tplv-tiktokx-origin.image?dr=9636&x-expires=1783746000&x-signature=GnlXKk64pnfUuF5TQ%2FOkmNY3D6w%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "drop pounds",
+      "analise": ""
+    },
+    {
+      "titulo": "🍋 PINK SALT TRICK — The viral recipe everyone’s talking about! 🧂✨\n\nThis simple mix with just 4 ingredients can help with bloating, energy, and digestion!\nHere’s the recipe 👇\n\n🔹 A pinch of pink salt\n🔹 ",
+      "canal": "gelatintrick",
+      "views": 84200,
+      "likes": 776,
+      "comentarios": 140,
+      "data": "2025-07-29",
+      "dias_desde_publicacao": 345,
+      "url": "https://www.tiktok.com/@gelatintrick/video/7532519104964513055",
+      "thumbnail": "https://p16-common-sign.tiktokcdn.com/tos-useast8-p-0068-tx2/owG40AfpViICf4RyETAbIaFEPipbkoIlDUEOBx~tplv-tiktokx-origin.image?dr=14575&x-expires=1783746000&x-signature=fNenOVaphuvKlrNnt4W7SVaWps4%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my",
+      "keyword": "pink salt recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "I’m not special I’m just consistent",
+      "canal": "benjicavazos",
+      "views": 63400,
+      "likes": 4682,
+      "comentarios": 14,
+      "data": "2026-07-05",
+      "dias_desde_publicacao": 4,
+      "url": "https://www.tiktok.com/@benjicavazos/video/7659182466296499470",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/ocTOQXCUHApQkCjYuIufeH5AVZnGlLf0bkgwlI~tplv-tiktokx-origin.image?dr=9636&x-expires=1783746000&x-signature=ID%2BZbV9n%2BpJOI41NCQd0U2NtKco%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "burn fat",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "",
@@ -186,13 +252,22 @@
   ],
   "trends": [
     {
+      "keyword": "ice water hack",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 100,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": 9900.0
+    },
+    {
       "keyword": "lose weight fast",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 26,
+      "score_atual": 82,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 100.0
+      "crescimento_pct": 148.5
     }
   ],
   "analise": {
@@ -200,52 +275,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [
-      {
-        "description": "Identical video/image sequence across all frames: blonde woman in denim shirt preparing a dark red drink in a modern kitchen, brunette woman holding a baby with a red gelatin bowl on the counter, and hands stirring in a pan on a stove. Same copy, same keyword, same format — clear single original creative duplicated across pages and accounts.",
-        "ad_indices": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          8,
-          9
-        ],
-        "pages": [
-          "unknown",
-          "Mary taylor"
-        ]
-      }
-    ],
-    "frequent_avatars": [
-      {
-        "type": "Relatable domestic mom — brunette or blonde woman in a home kitchen setting, often shown with a baby or child nearby, signaling a busy mother who discovers a simple affordable solution rather than a diet or program",
-        "count": 8,
-        "ad_indices": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          8,
-          9
-        ]
-      },
-      {
-        "type": "Lifelong hunger sufferer — middle-aged everyday woman who frames her weight struggle as a biological appetite problem, not a willpower failure, positioning herself as finally having found a natural solution",
-        "count": 1,
-        "ad_indices": [
-          7
-        ]
-      }
-    ],
-    "dominant_mechanism": "Grocery-store gelatin as a nightly metabolic or appetite-suppressing ritual — framed as a simple, cheap kitchen recipe that triggers weight loss through a specific preparation method, implying a gut or collagen-based mechanism",
-    "emerging_angle": "Natural Ozempic framing via UGC personal narrative — positioning a supplement as a GLP-1 appetite-regulation alternative for women who have biologically struggled with hunger their whole lives, tapping into the Ozempic cultural moment without pharma risk",
-    "market_signal": "US and UK markets are heavily stress-testing a single gelatin recipe creative across multiple pages and accounts, indicating strong early performance data on the curiosity-gap kitchen trend hook targeting moms, while simultaneously probing the natural Ozempic narrative as a high-intent alternative angle"
   }
 }
