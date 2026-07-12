@@ -1,5 +1,5 @@
 {
-  "data_execucao": "11/07/2026 12:58",
+  "data_execucao": "11/07/2026 13:10",
   "youtube": [
     {
       "titulo": "5 Celebrities Who Ruined Their Careers Over Weight Loss",
@@ -15,7 +15,47 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Fat burning cardio workout 🔥 No Equipment ✅ \n#fitness #fatburning #cardio #hiitworkout #homeworkout ",
+      "canal": "solo_fit",
+      "views": 2800000,
+      "likes": 150900,
+      "comentarios": 362,
+      "data": "2026-06-29",
+      "dias_desde_publicacao": 12,
+      "url": "https://www.tiktok.com/@solo_fit/video/7656902989394840839",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/oAD2NUYCSNeEIBFj1FQHABA4HyAfGZ3CfNhQMD~tplv-tiktokx-origin.image?dr=9636&x-expires=1783958400&x-signature=xx1%2B4N5heRTlayz%2B3ADdvFgE1VQ%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "burn fat",
+      "analise": ""
+    },
+    {
+      "titulo": "This is an easy healthier version of fruit roll ups. \n\nStrawberries, lemon, honey and Mango. Cook at 175 for about 3 hours. #cooking #fruitrollups #natural #healthy #grandkids ",
+      "canal": "christyisable71",
+      "views": 1400000,
+      "likes": 115200,
+      "comentarios": 445,
+      "data": "2026-07-04",
+      "dias_desde_publicacao": 7,
+      "url": "https://www.tiktok.com/@christyisable71/video/7658687420220656927",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/oMhqSIDoQEBESSrTfEAAQwkF2RSneI573s3RVP~tplv-tiktokx-origin.image?dr=9636&x-expires=1783958400&x-signature=Wt0Ceur6E6NbLXNJOPlmLTVDrhQ%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "natural recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "chia and lemon wellness drink 🍋✨\n\nthis simple homemade recipe combines chia seeds, sparkling water, and fresh lemon into a refreshing drink that's easy to prepare at home.\n\n💚 simple ingredients\n🥤 refr",
+      "canal": "naturalspfood",
+      "views": 284100,
+      "likes": 8453,
+      "comentarios": 219,
+      "data": "2026-06-25",
+      "dias_desde_publicacao": 16,
+      "url": "https://www.tiktok.com/@naturalspfood/video/7655438219512794381",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/ooZ7Gy05oQICRfONKFeLXpjIgDGG7ZA6XAeeRj~tplv-tiktokx-origin.image?dr=9636&x-expires=1783958400&x-signature=puoEEeREN9FZb1s9UVTANgWj3Cw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "lose weight",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "Bonnie Adkison - UGC - Mature Content Creator with Bioma.Health",
@@ -80,22 +120,13 @@
   ],
   "trends": [
     {
-      "keyword": "GLP-1",
+      "keyword": "ozempic",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 12,
+      "score_atual": 31,
       "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": 9.1
-    },
-    {
-      "keyword": "burn fat",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 29,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": 16.0
+      "score_minimo": 23,
+      "crescimento_pct": 3.3
     }
   ],
   "analise": {
@@ -103,40 +134,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [
-      {
-        "description": "No exact repeated creatives detected across the 3 ads. Each uses distinct visual formats, settings, and talent. However, ads 1 and 3 share the 'natural ozempic' keyword and UGC format with female presenters in domestic/polished settings, suggesting they may be A/B testing the same angle with different creators rather than the same original asset.",
-        "ad_indices": [
-          1,
-          3
-        ],
-        "pages": [
-          "Bonnie Adkison - UGC - Mature Content Creator with Bioma.Health",
-          "Earths Secret"
-        ]
-      }
-    ],
-    "frequent_avatars": [
-      {
-        "type": "Middle-aged woman (35-55) — relatable, health-conscious, experiencing hormonal or metabolic changes; filmed in domestic or lifestyle settings projecting aspiration and authenticity",
-        "count": 2,
-        "ad_indices": [
-          1,
-          3
-        ]
-      },
-      {
-        "type": "Middle-aged overweight man speaking with authority outdoors — everyman credibility, problem-aware, positions himself as someone who has discovered a hidden health insight",
-        "count": 1,
-        "ad_indices": [
-          2
-        ]
-      }
-    ],
-    "dominant_mechanism": "GLP-1 hormone stimulation and appetite regulation — framed as a natural, drug-free alternative to Ozempic that restores metabolic and hormonal balance",
-    "emerging_angle": "Liver detoxification as the root cause of weight gain — ad 2 uses an ultrasound visual hook and 'toxin buildup' narrative to reframe fat loss as an organ-health problem rather than a diet or hormone issue, which is a mechanistically distinct and visually disruptive entry point not yet saturated in this ad set",
-    "market_signal": "Both UK and US markets are actively testing GLP-1 naturalization messaging — positioning supplements as hormone-mimicking alternatives to prescription drugs — while the UK is simultaneously probing liver-health and salt-trick angles as secondary hooks targeting skeptical, solution-fatigued audiences"
   }
 }
