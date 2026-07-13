@@ -168,6 +168,54 @@
     background: var(--bg-deep);
     border-bottom: 1px solid var(--border);
   }
+  .niche-drop {
+    position: relative;
+    display: inline-block;
+  }
+  .niche-selected {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .niche-selected::after {
+    content: '▾';
+    font-size: 11px;
+  }
+  .niche-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    background: var(--bg-row);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 100;
+    min-width: 160px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  }
+  .niche-menu.open { display: block; }
+  .niche-option {
+    display: block;
+    width: 100%;
+    padding: 9px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 13px;
+    color: var(--text-1);
+    cursor: pointer;
+  }
+  .niche-option:hover { background: var(--bg-deep); }
+  .niche-option.on { color: var(--accent); font-weight: 600; }
   /* ── FB MEDIA FILTER ── */
   .media-bar {
     display: flex;
@@ -548,8 +596,13 @@
   <!-- NICHE BAR -->
   <div class="nbar">
     <span class="flab">Nicho:</span>
-    <button class="pill niche on" data-niche="weight-loss">Weight Loss</button>
-    <button class="pill niche" data-niche="saude-masculina">Saúde Masculina</button>
+    <div class="niche-drop" id="nicheDrop">
+      <button class="niche-selected" id="nicheBtn">Weight Loss</button>
+      <div class="niche-menu" id="nicheMenu">
+        <button class="niche-option on" data-niche="weight-loss">Weight Loss</button>
+        <button class="niche-option" data-niche="saude-masculina">Saúde Masculina</button>
+      </div>
+    </div>
   </div>
 
   <!-- TABS -->
@@ -1257,14 +1310,25 @@
     renderFbList();
   });
 
-  // ── Niche pill buttons ──
-  document.querySelectorAll('.pill.niche').forEach(function (p) {
-    p.addEventListener('click', function () {
-      document.querySelectorAll('.pill.niche').forEach(function (x) { x.classList.remove('on'); });
-      this.classList.add('on');
-      // Future: set ACTIVE_NICHE and re-filter; for now weight-loss is the only option
+  // ── Niche dropdown ──
+  (function () {
+    var btn  = document.getElementById('nicheBtn');
+    var menu = document.getElementById('nicheMenu');
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      menu.classList.toggle('open');
     });
-  });
+    document.addEventListener('click', function () { menu.classList.remove('open'); });
+    menu.querySelectorAll('.niche-option').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        menu.querySelectorAll('.niche-option').forEach(function (x) { x.classList.remove('on'); });
+        this.classList.add('on');
+        btn.textContent = this.textContent;
+        menu.classList.remove('open');
+        // Future: set ACTIVE_NICHE and re-filter
+      });
+    });
+  })();
 
   // ── Period pill buttons ──
   // Clone to remove old listeners, then re-attach
