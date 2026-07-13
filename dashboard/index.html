@@ -927,6 +927,7 @@
   var FB_MEDIA       = 'all';   // 'all' | 'video' | 'image'
   var ALL_FB         = [];      // current FB dataset for re-filtering
   var CACHE          = {};
+  var ACTIVE_NICHE   = 'weight-loss';  // 'weight-loss' | 'saude-masculina'
 
   // ── Base path for data files (works from dashboard/ subdir and root) ──
   var DATA_PATH = (function () {
@@ -1235,8 +1236,45 @@
       .catch(function () { renderAll([], [], [], [], {}, ''); });
   }
 
+  // ── Apply niche tab visibility ──
+  function applyNicheTabs() {
+    var isMale = ACTIVE_NICHE === 'saude-masculina';
+    var tabFb  = document.querySelector('.tab[data-tab="fb"]');
+    var tabGt  = document.querySelector('.tab[data-tab="gt"]');
+    if (tabFb) tabFb.style.display = isMale ? 'none' : '';
+    if (tabGt) tabGt.style.display = isMale ? 'none' : '';
+    // If a hidden tab is currently active, switch to yt
+    var activeTab = document.querySelector('.tab.on');
+    if (activeTab && (activeTab.dataset.tab === 'fb' || activeTab.dataset.tab === 'gt') && isMale) {
+      document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('on'); });
+      document.querySelectorAll('.screen').forEach(function (x) { x.classList.remove('on'); });
+      var ytTab = document.querySelector('.tab[data-tab="yt"]');
+      if (ytTab) ytTab.classList.add('on');
+      var ytSc  = document.getElementById('sc-yt');
+      if (ytSc)  ytSc.classList.add('on');
+    }
+  }
+
+  // ── Filter items by active niche ──
+  function nicheFilter(items) {
+    if (ACTIVE_NICHE === 'saude-masculina') {
+      return items.filter(function (x) { return x.nicho === 'male_health'; });
+    }
+    // weight-loss: show items with nicho='weight_loss' OR no nicho field (legacy data)
+    return items.filter(function (x) { return !x.nicho || x.nicho === 'weight_loss'; });
+  }
+
   // ── Render everything ──
   function renderAll(youtube, tiktok, facebook, trends, analise, dataExec) {
+    // Apply tab visibility for current niche
+    applyNicheTabs();
+
+    // Filter all datasets by active niche
+    youtube  = nicheFilter(youtube);
+    tiktok   = nicheFilter(tiktok);
+    facebook = nicheFilter(facebook);
+    trends   = nicheFilter(trends);
+
     // Header date — only update when not in custom range mode
     if (!USE_CUSTOM && dataExec) {
       document.getElementById('dateLabel').textContent = dataExec;
@@ -1335,7 +1373,8 @@
         this.classList.add('on');
         btn.textContent = this.textContent;
         menu.classList.remove('open');
-        // Future: set ACTIVE_NICHE and re-filter
+        ACTIVE_NICHE = this.dataset.niche;
+        loadAndRender();
       });
     });
   })();
