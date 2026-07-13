@@ -1,7 +1,34 @@
 {
-  "data_execucao": "12/07/2026 20:40",
+  "data_execucao": "12/07/2026 20:49",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "The best natural homemade sports drink for hydration, my pineapple flavour! Loaded with electrolytes, supports digestion, and fuels your workout naturally.👇🏽🔥\n-\n• 1 cup fresh pineapple\n• 2 cups coconu",
+      "canal": "its.razi",
+      "views": 1400000,
+      "likes": 57000,
+      "comentarios": 312,
+      "data": "2026-06-17",
+      "dias_desde_publicacao": 25,
+      "url": "https://www.tiktok.com/@its.razi/video/7652509756615167253",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/o0imoUVfQrelAXTB1AoIAADWM7AZEGMfIQj8jm~tplv-tiktokx-origin.image?dr=9636&x-expires=1784070000&x-signature=Kbp7RssziorxvQ55MDc2b8zU8MA%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "natural recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "LOVE YOU!!!! #weightloss #toxicdietculture #weightlossmotivation #bodyimage #safespace ",
+      "canal": "laetidecaru",
+      "views": 59700,
+      "likes": 2266,
+      "comentarios": 25,
+      "data": "2026-01-22",
+      "dias_desde_publicacao": 171,
+      "url": "https://www.tiktok.com/@laetidecaru/video/7598252142188694805",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-eu.com/tos-alisg-p-0037/oQeyipEJEZymAFu5REcINgBaWJscBgDrEIifR4~tplv-tiktokx-origin.image?dr=10395&x-expires=1784070000&x-signature=z6Xc3AQi%2B53YpSG4c5psS3ZuTWk%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=no1a",
+      "keyword": "weightloss",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "",
@@ -126,13 +153,13 @@
   ],
   "trends": [
     {
-      "keyword": "ozempic",
+      "keyword": "belly fat",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 31,
+      "score_atual": 58,
       "score_maximo": 100,
-      "score_minimo": 23,
-      "crescimento_pct": 3.3
+      "score_minimo": 19,
+      "crescimento_pct": 107.1
     }
   ],
   "analise": {
@@ -140,44 +167,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [
-      {
-        "description": "Identical ad copy opening with 'GLP-1 has become one of the biggest wellness trends in recent years' and identical avatar descriptions across all three frames (mirror selfie woman, elevator women, car woman) — strongly indicating the same original UGC video reused across multiple page/attribution variations",
-        "ad_indices": [
-          2,
-          3,
-          4
-        ],
-        "pages": [
-          "unknown",
-          "Jen Creates UGC with Bioma.Health",
-          "toristellall with Bioma.Health"
-        ]
-      }
-    ],
-    "frequent_avatars": [
-      {
-        "type": "Relatable middle-aged woman — everyday person framing, not a fitness influencer, shown in domestic or casual settings (kitchen, car, social media profile thumbnail), positioned as a peer sharing a personal discovery rather than a brand spokesperson",
-        "count": 3,
-        "ad_indices": [
-          1,
-          5,
-          6
-        ]
-      },
-      {
-        "type": "UGC multi-scene woman — fuller-bodied woman shown across multiple candid social contexts (mirror selfie, elevator, car), suggesting an authentic lifestyle journey rather than a polished transformation",
-        "count": 2,
-        "ad_indices": [
-          2,
-          3
-        ]
-      }
-    ],
-    "dominant_mechanism": "Natural GLP-1 activation — positioning the supplement as a way to boost the body's own GLP-1 hormone to suppress appetite, regulate blood sugar, and replicate the effects of Ozempic without a prescription",
-    "emerging_angle": "Metabolic signaling framing (Ad 1) — moving beyond 'appetite suppression' to argue the diet itself was never the problem, but rather broken metabolic signaling, which reframes the supplement as a systemic fix rather than a hunger hack; this shame-reversing, mechanistic hook appears only once but carries high emotional and intellectual resonance",
-    "market_signal": "UK and US markets are aggressively testing 'natural Ozempic' positioning by anchoring to GLP-1 as a credible hormone mechanism, using peer-to-peer UGC formats and budget-conscious framing to capture demand from consumers priced out of prescription GLP-1 drugs"
   }
 }
