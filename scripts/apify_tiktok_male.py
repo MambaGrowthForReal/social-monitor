@@ -268,4 +268,26 @@ if __name__ == '__main__':
     }
 
     stats = dedup.save(payload, verbose=True)
+    date_str = TODAY.strftime('%Y-%m-%d')
     print(f'\n  Saved → {stats.get("date_file", "")} + latest.json')
+
+    # ── Git commit + push ─────────────────────────────────────────────────────
+    import subprocess as _sub
+    _project_dir = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+    try:
+        _os.chdir(_project_dir)
+        _sub.run(['git', 'add', '-f', 'data/'], check=True, capture_output=True, text=True)
+        r = _sub.run(
+            ['git', 'commit', '-m', f'male health tiktok {date_str}'],
+            capture_output=True, text=True,
+        )
+        if r.returncode == 0:
+            print(f'  Git commit: {r.stdout.strip()}')
+        elif 'nothing to commit' in (r.stdout + r.stderr):
+            print('  Git: nothing to commit')
+        else:
+            print(f'  Git commit warning: {r.stderr.strip()}')
+        _sub.run(['git', 'push'], check=True, capture_output=True, text=True)
+        print('  Git push: OK')
+    except _sub.CalledProcessError as e:
+        print(f'  Git error: {e.stderr}')
