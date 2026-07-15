@@ -1,5 +1,5 @@
 {
-  "data_execucao": "14/07/2026 10:13",
+  "data_execucao": "14/07/2026 10:26",
   "youtube": [],
   "tiktok": [],
   "facebook": [
@@ -26,13 +26,13 @@
   ],
   "trends": [
     {
-      "keyword": "mounjaro",
+      "keyword": "lose weight fast",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 54,
+      "score_atual": 34,
       "score_maximo": 100,
-      "score_minimo": 23,
-      "crescimento_pct": 8.0
+      "score_minimo": 0,
+      "crescimento_pct": 61.9
     }
   ],
   "analise": {
@@ -40,20 +40,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [],
-    "frequent_avatars": [
-      {
-        "type": "Woman in her 40s showing transformation — confident, slim, relatable domestic setting (kitchen/backyard), implying lifestyle change rather than extreme dieting",
-        "count": 1,
-        "ad_indices": [
-          1
-        ]
-      }
-    ],
-    "dominant_mechanism": "Metabolic signaling correction — framing weight gain as a broken hunger/blood sugar regulation system rather than willpower failure, positioning the product as a fix for the root physiological cause",
-    "emerging_angle": "Ozempic-alternative positioning using natural ingredients ('natural ozempic' keyword), tapping into massive cultural awareness of GLP-1 drugs while offering an accessible, non-prescription alternative for cost- or fear-sensitive consumers",
-    "market_signal": "The US market is actively testing anti-diet shame messaging combined with pseudo-pharmaceutical credibility, leveraging GLP-1/Ozempic cultural momentum to sell fiber-based or natural supplements as metabolic regulators to women 35-55."
   }
 }
