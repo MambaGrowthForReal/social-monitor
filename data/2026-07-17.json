@@ -1,5 +1,5 @@
 {
-  "data_execucao": "17/07/2026 09:48",
+  "data_execucao": "17/07/2026 10:02",
   "youtube": [
     {
       "titulo": "Brandy Fires Back at Body Shamers After Weight Loss Rumors | Powerful Message Goes Viral!",
@@ -15,7 +15,34 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Vermicelli Pudding Recipe | Caramel Pudding Dessert | Caramel Semai Pudding | N'Oven\n\n#CaramelPudding #VermicelliPudding #SemaiDessert #EasyPuddingRecipe ",
+      "canal": "no.oven.cake.cookies",
+      "views": 107700,
+      "likes": 2700,
+      "comentarios": 35,
+      "data": "2026-07-15",
+      "dias_desde_publicacao": 2,
+      "url": "https://www.tiktok.com/@no.oven.cake.cookies/video/7662577005132614934",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/og6FAFqIWdgDdBL8gEkWvfE4FEARFAVeitod0E~tplv-tiktokx-origin.image?dr=9636&x-expires=1784462400&x-signature=Nc7%2FuN82fKVk7kLZdVyru3UO2V0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "pudding recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "At 19, my self confidence has reached a new low. I had always felt insecure, but I felt like I was completely lost and didn’t belong anywhere, including inside my own body. After 3 years of a complete",
+      "canal": "lilyurrrrr",
+      "views": 84500,
+      "likes": 4812,
+      "comentarios": 30,
+      "data": "2026-06-24",
+      "dias_desde_publicacao": 23,
+      "url": "https://www.tiktok.com/@lilyurrrrr/video/7655020503144353037",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/osRjMCQWGQ5X64f1AsLGIaGjZFefo2OQI0AlRe~tplv-tiktokx-origin.image?dr=9636&x-expires=1784462400&x-signature=woD4OiO6ljhYH8ghMnKscO5Qu4g%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "weightloss",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "Hannah Martin",
@@ -80,13 +107,40 @@
   ],
   "trends": [
     {
-      "keyword": "ozempic",
+      "keyword": "weight loss",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 34,
+      "score_maximo": 100,
+      "score_minimo": 25,
+      "crescimento_pct": 3.0
+    },
+    {
+      "keyword": "belly fat",
       "geo": "GB",
       "timeframe": "now 7-d",
       "score_atual": 30,
       "score_maximo": 100,
-      "score_minimo": 16,
-      "crescimento_pct": 20.0
+      "score_minimo": 26,
+      "crescimento_pct": 15.4
+    },
+    {
+      "keyword": "lose weight fast",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 14,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": 27.3
+    },
+    {
+      "keyword": "burn fat",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 56,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": 16.7
     }
   ],
   "analise": {
@@ -94,34 +148,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [
-      {
-        "description": "No confirmed repeated creatives across the three ads — each features a distinct named or described individual, different visual settings, and different primary messaging hooks. However, ads 2 and 3 share structural similarity (personal transformation story, kitchen/home UGC format, emotional before/after narrative) suggesting they may be testing the same creative template with different avatars.",
-        "ad_indices": [
-          2,
-          3
-        ],
-        "pages": [
-          "ColonBroom",
-          "Megan Hartwell"
-        ]
-      }
-    ],
-    "frequent_avatars": [
-      {
-        "type": "Relatable everyday woman (30s-40s, home environment, casual attire, speaking directly to camera in a confessional or testimonial tone)",
-        "count": 3,
-        "ad_indices": [
-          1,
-          2,
-          3
-        ]
-      }
-    ],
-    "dominant_mechanism": "Metabolic and gut signaling disruption — the idea that weight gain or inability to lose weight is caused by a broken internal system (GLP-1 signaling, bile flow, blood sugar regulation) rather than willpower or diet failure, positioning the supplement as a corrective to that underlying dysfunction",
-    "emerging_angle": "GLP-1 side effect support (ad 1) — targeting existing Ozempic/Mounjaro users experiencing constipation by framing the product as a digestive companion to GLP-1 drugs rather than a replacement, a highly specific and underserved sub-niche with strong purchase intent",
-    "market_signal": "The US market is heavily testing GLP-1 adjacent positioning — either mimicking Ozempic/Mounjaro language ('natural ozempic', 'natural mounjaro') or riding the GLP-1 user wave with complementary products — combined with systemic blame-shifting copy that removes personal responsibility to lower conversion friction"
   }
 }
