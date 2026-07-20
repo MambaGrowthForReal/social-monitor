@@ -1,7 +1,63 @@
 {
-  "data_execucao": "20/07/2026 02:34",
+  "data_execucao": "20/07/2026 10:33",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "🍯Natural Immune Support\n  \n👉 Which one are you making?\n\n🧄 Fermented Garlic: Cover peeled cloves in raw honey, sit 30 days. Take 1 tsp a day.\n  \n🌿 Infused vinegar: Rosemary + thyme in ACV, steep 3 week",
+      "canal": "healthwithcory",
+      "views": 4900000,
+      "likes": 415100,
+      "comentarios": 1572,
+      "data": "2025-11-05",
+      "dias_desde_publicacao": 257,
+      "url": "https://www.tiktok.com/@healthwithcory/video/7569336082836311327",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-eu.com/tos-useast8-p-0068-tx2/o8RiVzHHHRBIQB3biEr7baLicvIA3yEvxAuPG~tplv-tiktokx-origin.image?dr=10395&x-expires=1784696400&x-signature=Nlb0V%2Bs3CSgE450p0CXEkFz6YZo%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=no1a",
+      "keyword": "natural recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "Boost T! #schoolwithdrkaran #learnontiktok #testosterone #menshealth",
+      "canal": "dr.karanr",
+      "views": 5400000,
+      "likes": 227400,
+      "comentarios": 1280,
+      "data": "2021-09-09",
+      "dias_desde_publicacao": 1775,
+      "url": "https://www.tiktok.com/@dr.karanr/video/7006021125683629318",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-maliva-p-0068/845d0e9f4c12473b817a584e9a101ff3~tplv-tiktokx-dmt-logom:tos-maliva-p-0000/e8bba637b86145469114ec86c4699d40.image?dr=9634&x-expires=1784725200&x-signature=GIUDvtDpI35bTPMQhg8rzQPc0SY%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "testosterone boost",
+      "analise": "",
+      "nicho": "male_health"
+    },
+    {
+      "titulo": "3 GERAKAN SENAM KEGEL PALING EFEKTIF #hidupsehat #senamkegel #kegel #olahraga #sehat ",
+      "canal": "sehatwithjulia",
+      "views": 687300,
+      "likes": 15800,
+      "comentarios": 196,
+      "data": "2023-05-24",
+      "dias_desde_publicacao": 1153,
+      "url": "https://www.tiktok.com/@sehatwithjulia/video/7236607877836852486",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-eu.com/tos-maliva-p-0068/dc1bf0ddce6b4c0ea3a05bbc82fc1945_1684904098~tplv-tiktokx-origin.image?dr=10395&x-expires=1784725200&x-signature=R6KMERDLd%2B1anuD1xVpY6MT57Dc%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=no1a",
+      "keyword": "kegel",
+      "analise": "",
+      "nicho": "male_health"
+    },
+    {
+      "titulo": "SEGREDOS PARA MELHORAR A ERECAO E DURAR MAIS",
+      "canal": "deboramartinssexologa",
+      "views": 398100,
+      "likes": 11000,
+      "comentarios": 315,
+      "data": "2026-01-15",
+      "dias_desde_publicacao": 186,
+      "url": "https://www.tiktok.com/@deboramartinssexologa/video/7595646518896479506",
+      "thumbnail": "https://p16-common-sign.tiktokcdn.com/tos-alisg-p-0037/oIIAAMTPoAAi2oAlaJkhWBhpKliENCAYUBQqS~tplv-tiktokx-origin.image?dr=14575&x-expires=1784725200&x-signature=lyA06Dhre1i4NIh4YjwoPfpuGS0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2",
+      "keyword": "desempenho masculino",
+      "analise": "",
+      "nicho": "male_health"
+    }
+  ],
   "facebook": [
     {
       "page": "Manuela Castro with ColonBroom",
@@ -26,13 +82,31 @@
   ],
   "trends": [
     {
-      "keyword": "morning ritual weight loss",
+      "keyword": "weight loss",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 100,
+      "score_atual": 66,
+      "score_maximo": 100,
+      "score_minimo": 32,
+      "crescimento_pct": 3.1
+    },
+    {
+      "keyword": "ozempic",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 45,
+      "score_maximo": 100,
+      "score_minimo": 18,
+      "crescimento_pct": 9.8
+    },
+    {
+      "keyword": "GLP-1",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 70,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 9900.0
+      "crescimento_pct": 29.6
     }
   ],
   "analise": {
@@ -40,20 +114,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [],
-    "frequent_avatars": [
-      {
-        "type": "Middle-aged woman (40s) showing body transformation in casual outdoor setting",
-        "count": 1,
-        "ad_indices": [
-          1
-        ]
-      }
-    ],
-    "dominant_mechanism": "Metabolic signaling repair / gut-metabolism axis (framed as fixing broken hunger and blood sugar signals rather than calorie restriction)",
-    "emerging_angle": "Positioning fiber-based supplements as 'natural Ozempic' alternatives — tapping into GLP-1 cultural awareness without requiring a prescription, targeting women who feel they failed diets due to physiological dysfunction rather than willpower",
-    "market_signal": "The US market is actively testing metabolic reframing creatives that borrow GLP-1/Ozempic credibility language to sell accessible OTC supplements, using transformation testimonials from relatable middle-aged women to drive emotional resonance and reduce diet fatigue skepticism."
   }
 }
