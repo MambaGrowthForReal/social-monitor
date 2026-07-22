@@ -1,7 +1,75 @@
 {
-  "data_execucao": "22/07/2026 09:50",
+  "data_execucao": "22/07/2026 10:15",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Did you know that a b belly is just fat stored in your lower abdomen, it is completely natural, and normal, especially for women! We tend to hold more fat around this area for reproductive reasons (su",
+      "canal": "daisywilsono",
+      "views": 705800,
+      "likes": 4884,
+      "comentarios": 70,
+      "data": "2025-05-27",
+      "dias_desde_publicacao": 421,
+      "url": "https://www.tiktok.com/@daisywilsono/video/7509233741248630038",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oMDKoEfBeIKbhFPIpI5fwIbECKaGDjAs2QEEAL~tplv-tiktokx-origin.image?dr=9636&x-expires=1784898000&x-signature=bCzcGZmzGv%2BMOqW2iMvajkMMXzI%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "belly fat",
+      "analise": ""
+    },
+    {
+      "titulo": "#budincadevanilie #droetker #foryou #foryoupage",
+      "canal": "eficooking",
+      "views": 166300,
+      "likes": 1827,
+      "comentarios": 27,
+      "data": "2021-10-23",
+      "dias_desde_publicacao": 1733,
+      "url": "https://www.tiktok.com/@eficooking/video/7022292606428155141",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-eu.com/tos-maliva-p-0068/363cd57455f4453095d7b1ad3696be04~tplv-tiktokx-origin.image?dr=10395&x-expires=1784898000&x-signature=Y9qndg8gRg%2FTaxO6vftXry7l2Rs%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=no1a",
+      "keyword": "pudding recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "How to make natural anti-inflammatory remedy. How to make natural anti-inflammatory with honey, turmeric, ginger and black pepper. #health\n#naturalantiinflammatory #naturalremedy #naturalrecipes #anti",
+      "canal": "auralivin",
+      "views": 54100,
+      "likes": 1619,
+      "comentarios": 215,
+      "data": "2026-07-19",
+      "dias_desde_publicacao": 3,
+      "url": "https://www.tiktok.com/@auralivin/video/7664337401417846038",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oABFJkDSFAsEXMdaARK5AC2EexyEIkAfgqTW9E~tplv-tiktokx-dmt-logom:tos-no1a-i-0068-no/o0k8XJKRjEE6EMgFEqTgnJDfFCfAACkABIhdAa.image?dr=9634&x-expires=1784898000&x-signature=4ZoczAbz6Iuck2IWoZzYwaAcV0s%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "natural recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "Do Kegels Every Day, Boost Your Vitality   #kegel #kegelexercise #kegelworkout #pelvichealth #homeworkout ",
+      "canal": "latteboy868",
+      "views": 159200,
+      "likes": 3699,
+      "comentarios": 19,
+      "data": "2026-07-18",
+      "dias_desde_publicacao": 4,
+      "url": "https://www.tiktok.com/@latteboy868/video/7663863498027306253",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/ooIQyrIAk8ALsIvgpHjQ5teX04GkHCeQfB3UIb~tplv-tiktokx-origin.image?dr=9636&x-expires=1784898000&x-signature=b6MD2vhO4hzT%2FFumGai7bc8%2BXDM%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "kegel",
+      "analise": "",
+      "nicho": "male_health"
+    },
+    {
+      "titulo": "Last one is goated \n\n#movinwithjazz #testosterone #superfoods #healthylifestyle #menshealth ",
+      "canal": "movewithjazz",
+      "views": 133500,
+      "likes": 5134,
+      "comentarios": 51,
+      "data": "2026-04-08",
+      "dias_desde_publicacao": 105,
+      "url": "https://www.tiktok.com/@movewithjazz/video/7626230808847715602",
+      "thumbnail": "https://p16-common-sign.tiktokcdn.com/tos-alisg-i-photomode-sg/2ba201cfddcb401eb7b675f4c9c958da~tplv-photomode-image.jpeg?dr=14555&x-expires=1784898000&x-signature=Q048fDaRQIsmfltmYA729dnSUL8%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=9b759fb9&idc=my2&ftpl=1",
+      "keyword": "testosterone boost",
+      "analise": "",
+      "nicho": "male_health"
+    }
+  ],
   "facebook": [
     {
       "page": "",
@@ -66,13 +134,22 @@
   ],
   "trends": [
     {
+      "keyword": "belly fat",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 46,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": 24.3
+    },
+    {
       "keyword": "burn fat",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 49,
+      "score_atual": 38,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 16.7
+      "crescimento_pct": 11.8
     }
   ],
   "analise": {
@@ -80,47 +157,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [
-      {
-        "description": "Ads 2 and 3 share identical visual creative — same yellow gelatin dessert image with the same '208 to 134 lbs' testimonial text overlay — and the exact same ad copy, avatar (Sofia Duarte), keyword, format, and run duration. These are duplicate creatives likely being split-tested across different ad sets or audiences.",
-        "ad_indices": [
-          2,
-          3
-        ],
-        "pages": [
-          "unknown",
-          "unknown"
-        ]
-      },
-      {
-        "description": "All three ads (1, 2, 3) share the same avatar persona (Sofia Duarte), identical headline and body copy, same keyword, same format, and same 17-day run duration, indicating they originate from the same campaign with only minor image/testimonial number variations as the differentiator.",
-        "ad_indices": [
-          1,
-          2,
-          3
-        ],
-        "pages": [
-          "unknown",
-          "unknown",
-          "unknown"
-        ]
-      }
-    ],
-    "frequent_avatars": [
-      {
-        "type": "Relatable mid-40s woman — blonde, casual appearance, UGC-style persona presenting as a real person sharing a personal weight loss discovery rather than a brand spokesperson. Designed to build trust through social proof and first-person authenticity.",
-        "count": 3,
-        "ad_indices": [
-          1,
-          2,
-          3
-        ]
-      }
-    ],
-    "dominant_mechanism": "The 'Gelatin Trick' — a simple, low-calorie food-based ritual framed as a Japanese-inspired home routine that passively supports weight loss, positioned as a secret used by celebrities.",
-    "emerging_angle": "Japanese home routine framing — anchoring a Western weight loss product or recipe to Japanese cultural authority signals a fresh geo-cultural credibility angle that borrows from the broader 'Eastern wellness secret' trend but applies it specifically to an everyday accessible food (gelatin), which feels novel and low-barrier.",
-    "market_signal": "The US market is currently testing food-ritual-based weight loss hooks with heavy social proof via dramatic before/after testimonial numbers, using UGC-style female personas to mask advertorial content and drive curiosity clicks around simple, celebrity-adjacent 'tricks'."
   }
 }
