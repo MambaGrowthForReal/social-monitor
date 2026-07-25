@@ -1,7 +1,50 @@
 {
-  "data_execucao": "25/07/2026 12:58",
+  "data_execucao": "25/07/2026 13:10",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Sechs Lebensmittel, die den Testosteronspiegel auf natürliche Weise erhöhen.\n#gesundheit #gesundheitstipps #deutschland #testosteron #gesund ",
+      "canal": "dr.andreasmuller",
+      "views": 571400,
+      "likes": 5737,
+      "comentarios": 49,
+      "data": "2025-09-16",
+      "dias_desde_publicacao": 312,
+      "url": "https://www.tiktok.com/@dr.andreasmuller/video/7550650568075758870",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-eu.com/tos-no1a-p-0037-no/ogoDEJ8EADE2VgAAbTXCfFKfyFkZtIFPRUyV9A~tplv-tiktokx-origin.image?dr=10395&x-expires=1785168000&x-signature=xUFVFhW%2FRBhcRoixEKMcvB%2FjUmY%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=no1a",
+      "keyword": "testosterona",
+      "analise": "",
+      "nicho": "male_health"
+    },
+    {
+      "titulo": "Six Foods That Naturally Boost Testosterone Levels\n#testasterone  #food #health #levels #usa_tiktok #healthtips ",
+      "canal": "dailyhealthtips36",
+      "views": 387800,
+      "likes": 5029,
+      "comentarios": 46,
+      "data": "2026-07-15",
+      "dias_desde_publicacao": 10,
+      "url": "https://www.tiktok.com/@dailyhealthtips36/video/7662811257120083230",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/ocVBFMdVi5CBIkiAq3cAoxefMG8RBJEVXEEEQj~tplv-tiktokx-origin.image?dr=9636&x-expires=1785168000&x-signature=8HOesdTMIdqitl0ruzjvxR3Sfsk%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "testosterone boost",
+      "analise": "",
+      "nicho": "male_health"
+    },
+    {
+      "titulo": "How can you stop yourself ejaculating prematurely? #doctor #seggs #sexualhealth #menshealth ",
+      "canal": "doctorsooj",
+      "views": 325100,
+      "likes": 2243,
+      "comentarios": 47,
+      "data": "2022-12-24",
+      "dias_desde_publicacao": 1309,
+      "url": "https://www.tiktok.com/@doctorsooj/video/7180741471820057862",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-maliva-p-0068/o0A1AHI0GfOcXC4BExhzFlNZItUco5RbgkngaI~tplv-tiktokx-origin.image?dr=9636&x-expires=1785168000&x-signature=7CiXIEWWDTfgOzhaAtUlL1joi1k%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "premature ejaculation",
+      "analise": "",
+      "nicho": "male_health"
+    }
+  ],
   "facebook": [
     {
       "page": "40 Plus & Fabulous",
@@ -186,22 +229,13 @@
   ],
   "trends": [
     {
-      "keyword": "weight loss",
+      "keyword": "natural ozempic",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 50,
-      "score_maximo": 100,
-      "score_minimo": 37,
-      "crescimento_pct": 31.6
-    },
-    {
-      "keyword": "GLP-1",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 26,
+      "score_atual": 100,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 36.8
+      "crescimento_pct": 9900.0
     }
   ],
   "analise": {
@@ -209,89 +243,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [
-      {
-        "description": "Same locker room bikini mirror selfie visual (woman in 40s-50s post-weight-loss body reveal) used across two different page identities with near-identical copy about Ozempic loose skin shame",
-        "ad_indices": [
-          1,
-          2
-        ],
-        "pages": [
-          "40 Plus & Fabulous",
-          "Nora Davies"
-        ]
-      },
-      {
-        "description": "Identical headline copy ('Lost 60 pounds on Ozempic. My reward is legs I'm still too ashamed to show anyone...') run under the same Nora Davies persona across two different creative formats/visuals — locker room standing vs. poolside reclining",
-        "ad_indices": [
-          2,
-          3
-        ],
-        "pages": [
-          "Nora Davies",
-          "Nora Davies"
-        ]
-      },
-      {
-        "description": "Same Purely Well UK campaign running identical body copy across four ad variants, split-testing different couple/avatar images (solo woman, younger couple, older couple, mixed couple) in the same outdoor purple-top context",
-        "ad_indices": [
-          5,
-          6,
-          7,
-          8
-        ],
-        "pages": [
-          "Purely Well UK",
-          "Purely Well UK",
-          "Purely Well UK",
-          "Purely Well UK"
-        ]
-      },
-      {
-        "description": "Same 'Over 40 & Fabulous' page brand and GLP-1 loose skin angle running in both US and DE markets, with similar beach/skin-pinching creative framework suggesting the same original video asset is being geo-duplicated",
-        "ad_indices": [
-          1,
-          9
-        ],
-        "pages": [
-          "40 Plus & Fabulous",
-          "Over 40 & Fabulous"
-        ]
-      }
-    ],
-    "frequent_avatars": [
-      {
-        "type": "Post-GLP-1 Woman (50s): Lost significant weight on Ozempic/Wegovy but is now emotionally burdened by loose, deflated skin — shame-driven, avoids social situations like pool days or wearing shorts, seeking a non-surgical skin fix",
-        "count": 4,
-        "ad_indices": [
-          1,
-          2,
-          3,
-          9
-        ]
-      },
-      {
-        "type": "Middle-aged couple (late 40s-60s): Relationship-context weight loss narrative — woman's weight affecting intimacy, self-image, and romantic milestones; partner visible to signal relational stakes",
-        "count": 4,
-        "ad_indices": [
-          5,
-          6,
-          7,
-          8
-        ]
-      },
-      {
-        "type": "Menopausal UK Woman (~52): Dismissed by NHS/GP, frustrated by water retention and bloating framed as menopause symptoms rather than fat — seeking validation and a medical-sounding workaround",
-        "count": 1,
-        "ad_indices": [
-          4
-        ]
-      }
-    ],
-    "dominant_mechanism": "GLP-1/Ozempic weight loss side-effect reversal — specifically targeting loose, deflated skin left behind after rapid weight loss on semaglutide drugs, positioned as a natural topical or supplemental skin-tightening solution",
-    "emerging_angle": "Water retention as the 'real' cause of weight gain (Ad 4 — salt trick/trapped water angle): reframes the problem entirely away from fat or appetite and toward lymphatic/hormonal fluid retention, validated through a GP dismissal story — this menopause-meets-medical-gaslight angle is unique in the set and has high emotional resonance with the NHS-frustrated UK female audience",
-    "market_signal": "US and UK markets are aggressively testing post-Ozempic consequence narratives (loose skin, body shame, emotional cost of GLP-1 results) as a backdoor entry angle for natural supplement alternatives, while DE mirrors US creatives suggesting cross-market scaling of winning GLP-1 adjacent hooks; Purely Well UK is simultaneously A/B testing relationship-stakes framing across multiple couple avatar variations to find the highest-converting emotional context"
   }
 }
