@@ -1,7 +1,21 @@
 {
-  "data_execucao": "31/07/2026 10:18",
+  "data_execucao": "31/07/2026 10:36",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "losing fat ≠ losing weight #weightlossjourney #gymgirl #mindset #wellnessgirl #fyp ",
+      "canal": "tinaliftsheavy",
+      "views": 93300,
+      "likes": 6781,
+      "comentarios": 8,
+      "data": "2026-07-02",
+      "dias_desde_publicacao": 29,
+      "url": "https://www.tiktok.com/@tinaliftsheavy/video/7657740232250412319",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/ooi2P1uAYCCiCPiIg1IBFyAqWwAfqk4FzVIEjB~tplv-tiktokx-origin.image?dr=9636&x-expires=1785675600&x-signature=nuB2ek8%2FLf%2BNqD4fuS1%2BshKBMO4%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "weightloss",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "",
@@ -29,10 +43,10 @@
       "keyword": "GLP-1",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 17,
+      "score_atual": 9,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 142.9
+      "crescimento_pct": 50.0
     }
   ],
   "analise": {
@@ -40,20 +54,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [],
-    "frequent_avatars": [
-      {
-        "type": "Middle-aged to older male speaking directly to camera in casual home setting (kitchen/living room), positioned as relatable everyman or quasi-authority figure sharing a personal discovery",
-        "count": 1,
-        "ad_indices": [
-          1
-        ]
-      }
-    ],
-    "dominant_mechanism": "Liver detoxification and lymphatic drainage as the root cause of stubborn belly fat accumulation",
-    "emerging_angle": "Skin tags as a visible, alarming biomarker of liver overload and lymphatic dysfunction — linking a common cosmetic concern to metabolic/weight issues to create dual urgency and broaden the addressable audience beyond just weight loss seekers",
-    "market_signal": "The US market is actively testing 'natural Ozempic' positioning that reframes organ-level dysfunction (liver, lymphatics) as the hidden mechanism behind fat retention, using UGC male avatars to lend credibility and sidestep pharmaceutical comparison scrutiny"
   }
 }
