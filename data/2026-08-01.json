@@ -1,5 +1,5 @@
 {
-  "data_execucao": "01/08/2026 02:36",
+  "data_execucao": "01/08/2026 02:44",
   "youtube": [
     {
       "titulo": "17 Celebrities Whose Ozempic Face Transformations Backfired | Before & After 2026",
@@ -15,7 +15,47 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Here’s the science behind burning fat ",
+      "canal": "joshcantcook_",
+      "views": 5800000,
+      "likes": 834400,
+      "comentarios": 3514,
+      "data": "2026-02-26",
+      "dias_desde_publicacao": 156,
+      "url": "https://www.tiktok.com/@joshcantcook_/video/7610996128376556831",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/ooA9IIiTqIVFijdQrQfeCLsP0Gwqf1Q3vlK8qA~tplv-tiktokx-origin.image?dr=9636&x-expires=1785733200&x-signature=dqM5WLDhb%2F7h%2BXbUGAP%2FzYbcsJY%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "burn fat",
+      "analise": ""
+    },
+    {
+      "titulo": "Cutting carbs will always mean weight loss for most guys ",
+      "canal": "josiahfitness",
+      "views": 73700,
+      "likes": 1968,
+      "comentarios": 312,
+      "data": "2026-07-09",
+      "dias_desde_publicacao": 23,
+      "url": "https://www.tiktok.com/@josiahfitness/video/7660533964880481566",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/okTWr9CPBIpyOPwcAziDqdI8DAfr1biIiVA0CJ~tplv-tiktokx-origin.image?dr=9636&x-expires=1785733200&x-signature=8DTd%2BVkF%2F%2FJSAW4O4sQHZc1SeuU%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "lose weight",
+      "analise": ""
+    },
+    {
+      "titulo": "Use to look at it and get upset back in the days 🧐 #body #ciało ",
+      "canal": "dailysana",
+      "views": 61200,
+      "likes": 2539,
+      "comentarios": 32,
+      "data": "2026-07-24",
+      "dias_desde_publicacao": 8,
+      "url": "https://www.tiktok.com/@dailysana/video/7666182170842516769",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast2a-p-0037-euttp/oAeCAoJfBjBqiDA5EABURwIBQi4EmMAs43YuIA~tplv-tiktokx-origin.image?dr=9636&x-expires=1785733200&x-signature=5B7vGv%2B4JTLWbBXVrRnN%2BB8rf38%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast8",
+      "keyword": "belly fat",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "Bettervits",
@@ -40,13 +80,13 @@
   ],
   "trends": [
     {
-      "keyword": "GLP-1",
+      "keyword": "belly fat",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 9,
+      "score_atual": 61,
       "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": 50.0
+      "score_minimo": 29,
+      "crescimento_pct": 7.0
     }
   ],
   "analise": {
@@ -54,20 +94,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {
-    "repeated_creatives": [],
-    "frequent_avatars": [
-      {
-        "type": "Young woman speaking directly to camera in casual home setting, relatable UGC style, positioned as someone who has personal experience with weight loss drugs or supplements",
-        "count": 1,
-        "ad_indices": [
-          1
-        ]
-      }
-    ],
-    "dominant_mechanism": "GLP-1 alternative or post-GLP-1 transition support — positioning natural supplements as a safer or next-step solution after discontinuing Ozempic or Mounjaro due to side effects",
-    "emerging_angle": "Post-GLP-1 off-ramp messaging — targeting people who have already tried and stopped using injectable weight loss drugs, framing the supplement as a recovery or continuation solution rather than a first-line product. This is a high-potential angle because it captures a growing, self-identifying audience with strong purchase intent and prior proof of weight loss motivation.",
-    "market_signal": "The UK market is actively testing GLP-1 exit and alternative messaging, leveraging cultural awareness of Ozempic and Mounjaro to position natural supplements as credible, side-effect-free successors to prescription weight loss drugs."
   }
 }
