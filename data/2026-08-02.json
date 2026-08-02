@@ -1,7 +1,49 @@
 {
-  "data_execucao": "02/08/2026 13:08",
+  "data_execucao": "02/08/2026 14:41",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Good morning to yall ❤️ #chubbygirl #fatgirl #bigbelly #feederism #usa ",
+      "canal": "charlietummy1",
+      "views": 175500,
+      "likes": 2489,
+      "comentarios": 27,
+      "data": "2026-06-07",
+      "dias_desde_publicacao": 56,
+      "url": "https://www.tiktok.com/@charlietummy1/video/7648606416336358677",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/okTsIkcRtE6UOcDBBigFzJwdIfTfqaEBaA6slA~tplv-tiktokx-origin.image?dr=9636&x-expires=1785862800&x-signature=LFl6vz%2F2S5BNf8PJqoFIz2C9%2FTQ%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "belly fat",
+      "analise": ""
+    },
+    {
+      "titulo": "",
+      "canal": "biancaurologia",
+      "views": 99600,
+      "likes": 2269,
+      "comentarios": 13,
+      "data": "2026-03-22",
+      "dias_desde_publicacao": 133,
+      "url": "https://www.tiktok.com/@biancaurologia/video/7620220656520629525",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/oUBiFpHBBGXEEyFRyrQFMVAcLdgfylmAfzwQnD~tplv-tiktokx-origin.image?dr=9636&x-expires=1785862800&x-signature=FcJrfp6j7hdPeQxfDbA7%2BercH0U%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "ejaculação precoce",
+      "analise": "",
+      "nicho": "male_health"
+    },
+    {
+      "titulo": "",
+      "canal": "thedon0401",
+      "views": 84000,
+      "likes": 4183,
+      "comentarios": 112,
+      "data": "2026-07-31",
+      "dias_desde_publicacao": 2,
+      "url": "https://www.tiktok.com/@thedon0401/video/7668821196661624094",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/o8IRB19PgABiwtCEaS03mBytIViEPEdAqllrB~tplv-tiktokx-origin.image?dr=9636&x-expires=1785862800&x-signature=L86DaCUJXlWmxtqTjkGtdVe5XdI%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "testosterone",
+      "analise": "",
+      "nicho": "male_health"
+    }
+  ],
   "facebook": [
     {
       "page": "",
@@ -82,13 +124,22 @@
   ],
   "trends": [
     {
-      "keyword": "belly fat",
+      "keyword": "ozempic",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 61,
+      "score_atual": 32,
       "score_maximo": 100,
-      "score_minimo": 29,
-      "crescimento_pct": 7.0
+      "score_minimo": 0,
+      "crescimento_pct": 39.1
+    },
+    {
+      "keyword": "GLP-1",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 8,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": 33.3
     }
   ],
   "analise": {
@@ -96,6 +147,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
