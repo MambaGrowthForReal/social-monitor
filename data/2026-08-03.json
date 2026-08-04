@@ -1,7 +1,21 @@
 {
-  "data_execucao": "03/08/2026 03:01",
+  "data_execucao": "03/08/2026 03:25",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Save this workout and try at home 🔥🔥 #fitnessmotivation #homeworkout #absworkout #fyp #viral ",
+      "canal": "you1stlondon",
+      "views": 85900,
+      "likes": 4143,
+      "comentarios": 57,
+      "data": "2026-08-02",
+      "dias_desde_publicacao": 1,
+      "url": "https://www.tiktok.com/@you1stlondon/video/7669466024705740035",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-no1a-p-0037-no/oAHF6ECDEWRkBqA9XfpOvI2cqrAafD1WbAEgAF~tplv-tiktokx-origin.image?dr=9636&x-expires=1785909600&x-signature=Yq6Alrjcy4GpG%2BH2mZvBHzSzV3c%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "burn fat",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "Synocell",
@@ -888,22 +902,67 @@
   ],
   "trends": [
     {
-      "keyword": "ozempic",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 32,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": 39.1
-    },
-    {
       "keyword": "GLP-1",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 8,
+      "score_atual": 0,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 33.3
+      "crescimento_pct": -100.0
+    },
+    {
+      "keyword": "natural ozempic",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 0,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": -100.0
+    },
+    {
+      "keyword": "pink salt trick",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 0,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": -100.0
+    },
+    {
+      "keyword": "gelatin trick",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 0,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": -100.0
+    },
+    {
+      "keyword": "ice water hack",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 0,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": -100.0
+    },
+    {
+      "keyword": "morning ritual weight loss",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 0,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": -100.0
+    },
+    {
+      "keyword": "burn fat",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 0,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": -100.0
     }
   ],
   "analise": {
@@ -911,6 +970,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
