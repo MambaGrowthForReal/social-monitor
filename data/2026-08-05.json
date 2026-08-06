@@ -1,7 +1,47 @@
 {
-  "data_execucao": "05/08/2026 09:37",
+  "data_execucao": "05/08/2026 09:59",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "@fiona: For everyone who's new here 👋 I'm Fiona. I was 29 in the before photo and 30 in the after. I lost 82 lbs through body recomposition—losing fat while building muscle at the same time. Here’s a ",
+      "canal": "dr.fiona.lifts",
+      "views": 1000000,
+      "likes": 101100,
+      "comentarios": 330,
+      "data": "2026-08-02",
+      "dias_desde_publicacao": 3,
+      "url": "https://www.tiktok.com/@dr.fiona.lifts/video/7669449098566651149",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/oYimNvMEEIiVgyvByXZW22iUBRB4a9sApIaLn~tplv-tiktokx-origin.image?dr=9636&x-expires=1786104000&x-signature=04hTPv3vIOtNh2UgDq9tbeMJsPg%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "weight loss",
+      "analise": ""
+    },
+    {
+      "titulo": "Receita natural #garrafada #sucosnaturais",
+      "canal": "benzedeirabia",
+      "views": 65400,
+      "likes": 2290,
+      "comentarios": 189,
+      "data": "2026-03-06",
+      "dias_desde_publicacao": 152,
+      "url": "https://www.tiktok.com/@benzedeirabia/video/7614171349065420040",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-alisg-p-0037/oc8mWiGVRLMqzVXQteW05IcEGuJdQAFjefCweA~tplv-tiktokx-origin.image?dr=9636&x-expires=1786104000&x-signature=ArUf4ywForLvs0DoWx0dmOwCEUc%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "natural mounjaro",
+      "analise": ""
+    },
+    {
+      "titulo": "",
+      "canal": "ashdollll",
+      "views": 50900,
+      "likes": 1139,
+      "comentarios": 25,
+      "data": "2026-07-24",
+      "dias_desde_publicacao": 12,
+      "url": "https://www.tiktok.com/@ashdollll/video/7666212887291038990",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/ocjjocLERItAAS6ff1IBAiDq71PFED09BgXv3Y~tplv-tiktokx-origin.image?dr=9636&x-expires=1786104000&x-signature=v9FCtPvgn225%2F9uqAC108l%2BzxC4%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "weightloss",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "",
@@ -258,67 +298,13 @@
   ],
   "trends": [
     {
-      "keyword": "GLP-1",
+      "keyword": "mounjaro",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 0,
+      "score_atual": 100,
       "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": -100.0
-    },
-    {
-      "keyword": "natural ozempic",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 0,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": -100.0
-    },
-    {
-      "keyword": "pink salt trick",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 0,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": -100.0
-    },
-    {
-      "keyword": "gelatin trick",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 0,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": -100.0
-    },
-    {
-      "keyword": "ice water hack",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 0,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": -100.0
-    },
-    {
-      "keyword": "morning ritual weight loss",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 0,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": -100.0
-    },
-    {
-      "keyword": "burn fat",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 0,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": -100.0
+      "score_minimo": 35,
+      "crescimento_pct": 117.4
     }
   ],
   "analise": {
@@ -326,6 +312,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
