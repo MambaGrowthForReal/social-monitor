@@ -1,5 +1,5 @@
 {
-  "data_execucao": "06/08/2026 07:47",
+  "data_execucao": "06/08/2026 08:01",
   "youtube": [
     {
       "titulo": "7 FAMOSOS que MUDARAM a APARÊNCIA ao USAR MOUNJARO e OZEMPIC",
@@ -15,7 +15,47 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "oat cake #viralvideos #foryou #healthytips ",
+      "canal": "evergreens.lifest",
+      "views": 4800000,
+      "likes": 74900,
+      "comentarios": 645,
+      "data": "2026-03-05",
+      "dias_desde_publicacao": 154,
+      "url": "https://www.tiktok.com/@evergreens.lifest/video/7613801053657812227",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-eu.com/tos-no1a-p-0037-no/ooEin5IxEi7pBGZ5ApAm3Yx1anBxHjiapaBP0~tplv-tiktokx-origin.image?dr=10395&x-expires=1786183200&x-signature=uk3%2F%2BsE78lhCJbPbT%2FHOAnV88ks%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=no1a",
+      "keyword": "natural recipe",
+      "analise": ""
+    },
+    {
+      "titulo": "#workoutathome #homeworkout #cardio #burnfat #fit ",
+      "canal": "workout_at_home_2025",
+      "views": 798300,
+      "likes": 20700,
+      "comentarios": 71,
+      "data": "2026-08-05",
+      "dias_desde_publicacao": 1,
+      "url": "https://www.tiktok.com/@workout_at_home_2025/video/7670276288136989983",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-us.com/tos-useast8-p-0068-tx2/oY1Jr1AFqIAUeAqUAgAJQlIkeaIDeEIqhGqj5L~tplv-tiktokx-origin.image?dr=9636&x-expires=1786183200&x-signature=OOPJ0g8wqFUimSmrhkWYkeTEWhI%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "burn fat",
+      "analise": ""
+    },
+    {
+      "titulo": "The most easiest bread you’ll ever bake 🥰 #breadpudding #breadpuddingrecipe #pudding never ever waste your old bread ☺️ #charliemayneinthekitchen #pinayhere",
+      "canal": "iamcharliemayne",
+      "views": 257100,
+      "likes": 3142,
+      "comentarios": 74,
+      "data": "2022-03-23",
+      "dias_desde_publicacao": 1597,
+      "url": "https://www.tiktok.com/@iamcharliemayne/video/7078446602326723882",
+      "thumbnail": "https://p16-common-sign.tiktokcdn.com/tos-useast5-p-0068-tx/f0cc863b6e2146489c85a2b15715305d_1648079281~tplv-tiktokx-origin.image?dr=14575&x-expires=1786183200&x-signature=fSEqG073C7eNyCw7ym5xCGG5Etw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=my2",
+      "keyword": "pudding recipe",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "Denise Walker",
@@ -485,10 +525,10 @@
       "keyword": "mounjaro",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 100,
+      "score_atual": 53,
       "score_maximo": 100,
-      "score_minimo": 35,
-      "crescimento_pct": 117.4
+      "score_minimo": 26,
+      "crescimento_pct": 35.9
     }
   ],
   "analise": {
@@ -496,6 +536,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
