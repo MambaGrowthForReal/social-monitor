@@ -1,7 +1,21 @@
 {
-  "data_execucao": "07/08/2026 09:54",
+  "data_execucao": "07/08/2026 10:06",
   "youtube": [],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Tips dan trik anti gagal\n\n#snack #sarapanpagi #foodies #puding #malamminggu #tips ",
+      "canal": "clarabae.jkt",
+      "views": 135200,
+      "likes": 794,
+      "comentarios": 35,
+      "data": "2024-07-15",
+      "dias_desde_publicacao": 753,
+      "url": "https://www.tiktok.com/@clarabae.jkt/video/7391848388234317061",
+      "thumbnail": "https://p16-common-sign.tiktokcdn-eu.com/tos-maliva-p-0068/ca4eea786ac64c3ba2a38b5e968ec8ac_1721049013~tplv-tiktokx-origin.image?dr=10395&x-expires=1786280400&x-signature=LabrpkVbwmtiuPhREOaYLkjNcXo%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=no1a",
+      "keyword": "pudding trick",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "The Health Haven",
@@ -412,13 +426,22 @@
   ],
   "trends": [
     {
-      "keyword": "mounjaro",
+      "keyword": "GLP-1",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 53,
+      "score_atual": 10,
       "score_maximo": 100,
-      "score_minimo": 26,
-      "crescimento_pct": 35.9
+      "score_minimo": 0,
+      "crescimento_pct": 42.9
+    },
+    {
+      "keyword": "lose weight fast",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 24,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": 33.3
     }
   ],
   "analise": {
@@ -426,6 +449,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
