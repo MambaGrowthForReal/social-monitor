@@ -1,5 +1,5 @@
 {
-  "data_execucao": "09/08/2026 02:46",
+  "data_execucao": "09/08/2026 02:58",
   "youtube": [
     {
       "titulo": "Rimi Tomy എങ്ങനെ മെലിഞ്ഞു?❤️ #shorts #rimitomy #weightloss  #food #viral #malayalam",
@@ -15,7 +15,21 @@
       "analise": ""
     }
   ],
-  "tiktok": [],
+  "tiktok": [
+    {
+      "titulo": "Look at me. 💕 Consistency will beat motivation every time. 💪🏾\n.\nHi, my name is Nikki Angel, and I’ve lost over 95 pounds.\n.\nI’ve started, stopped, and started over more times than I can count. The dif",
+      "canal": "rudebthonest",
+      "views": 268500,
+      "likes": 35500,
+      "comentarios": 597,
+      "data": "2026-07-31",
+      "dias_desde_publicacao": 9,
+      "url": "https://www.tiktok.com/@rudebthonest/video/7668721404455472398",
+      "thumbnail": "https://p19-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/oIOsFiLu0mOUzgmBIYaiEo4gIC5INc1FxAvB5~tplv-tiktokx-origin.image?dr=9636&x-expires=1786424400&x-signature=NuMq4AE7IIRdFI0ujaDu21oBavw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5",
+      "keyword": "lose weight",
+      "analise": ""
+    }
+  ],
   "facebook": [
     {
       "page": "Nail Exodus",
@@ -636,22 +650,13 @@
   ],
   "trends": [
     {
-      "keyword": "GLP-1",
-      "geo": "GB",
-      "timeframe": "now 7-d",
-      "score_atual": 10,
-      "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": 42.9
-    },
-    {
       "keyword": "lose weight fast",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 24,
+      "score_atual": 45,
       "score_maximo": 100,
       "score_minimo": 0,
-      "crescimento_pct": 33.3
+      "crescimento_pct": 4400.0
     }
   ],
   "analise": {
@@ -659,6 +664,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
