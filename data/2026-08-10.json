@@ -1,5 +1,5 @@
 {
-  "data_execucao": "10/08/2026 09:05",
+  "data_execucao": "10/08/2026 09:28",
   "youtube": [
     {
       "titulo": "Same move celebrities use for better posture and a slimmer waist#motivation #motivationmonday #fypシ゚",
@@ -398,13 +398,13 @@
   ],
   "trends": [
     {
-      "keyword": "lose weight fast",
+      "keyword": "ozempic",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 45,
+      "score_atual": 31,
       "score_maximo": 100,
-      "score_minimo": 0,
-      "crescimento_pct": 4400.0
+      "score_minimo": 17,
+      "crescimento_pct": 55.0
     }
   ],
   "analise": {
@@ -412,6 +412,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
