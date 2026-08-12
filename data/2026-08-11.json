@@ -1,5 +1,5 @@
 {
-  "data_execucao": "11/08/2026 10:52",
+  "data_execucao": "11/08/2026 11:10",
   "youtube": [],
   "tiktok": [],
   "facebook": [
@@ -412,13 +412,22 @@
   ],
   "trends": [
     {
-      "keyword": "ozempic",
+      "keyword": "belly fat",
       "geo": "GB",
       "timeframe": "now 7-d",
-      "score_atual": 31,
+      "score_atual": 100,
       "score_maximo": 100,
-      "score_minimo": 17,
-      "crescimento_pct": 55.0
+      "score_minimo": 0,
+      "crescimento_pct": 1150.0
+    },
+    {
+      "keyword": "burn fat",
+      "geo": "GB",
+      "timeframe": "now 7-d",
+      "score_atual": 100,
+      "score_maximo": 100,
+      "score_minimo": 0,
+      "crescimento_pct": 1328.6
     }
   ],
   "analise": {
@@ -426,6 +435,5 @@
     "mecanismos_em_alta": "",
     "avatares_em_alta": "",
     "recomendacoes": ""
-  },
-  "facebook_cross_analysis": {}
+  }
 }
